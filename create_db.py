@@ -22,7 +22,7 @@ def create_table(conn, create_table_sql):
 
 
 def main():
-    database = r"cars.db"
+    database = r"vehicles.db"
 
     sql_create_projects_table = """ CREATE TABLE IF NOT EXISTS cars (
                                         id integer PRIMARY KEY,
