@@ -26,7 +26,7 @@ def update_cars(conn, project):
 
 
 def number_of_vehicles():
-    con = sqlite3.connect("pythonsqlite.db")
+    con = sqlite3.connect("vehicles.db")
     cursor = con.cursor()
     result = cursor.execute(
         "select id, make, model from cars"
@@ -36,7 +36,7 @@ def number_of_vehicles():
 
 
 def main():
-    database = r"pythonsqlite.db"
+    database = r"vehicles.db"
     conn = create_connection(database)
 
     with conn:
