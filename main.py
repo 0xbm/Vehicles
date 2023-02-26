@@ -38,7 +38,7 @@ def create_project(conn, project):
 
 
 def main():
-    database = r"pythonsqlite.db"
+    database = r"vehicles.db"
     conn = create_connection(database)
 
     with conn:
