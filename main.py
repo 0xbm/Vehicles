@@ -45,12 +45,12 @@ def main():
         choice = input("What would you like to do?\n1.Add car or q for quit: \n")
         match choice:
             case "1":
-                made = input("Car make: ")
+                make = input("Car make: ")
                 model = input("Car model: ")
                 reg_number = input("Registration number: ")
                 tech_insp = input("Technical inspection date (one in year): ")
                 project = (
-                    made.capitalize(),
+                    make.capitalize(),
                     model.capitalize(),
                     reg_number.upper(),
                     tech_insp,
