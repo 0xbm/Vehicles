@@ -43,7 +43,6 @@ def main():
                                     FOREIGN KEY (project_id) REFERENCES projects (id)
                                 );"""
 
-    # create a database connection
     conn = create_connection(database)
 
     # create tables
