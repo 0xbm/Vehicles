@@ -45,12 +45,8 @@ def main():
 
     conn = create_connection(database)
 
-    # create tables
     if conn is not None:
-        # create projects table
         create_table(conn, sql_create_projects_table)
-
-        # create tasks table
         create_table(conn, sql_create_tasks_table)
     else:
         print("Error! cannot create the database connection.")
