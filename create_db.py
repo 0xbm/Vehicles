@@ -29,6 +29,9 @@ def main():
                                         make text NOT NULL,
                                         model text NOT NULL,
                                         registration_number text,
+                                        vin text,
+                                        capacity float,
+                                        kw float,
                                         technical_inspection text
                                     ); """
 
