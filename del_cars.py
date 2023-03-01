@@ -21,7 +21,7 @@ def delete(conn, id):
 
 
 def delete_all(conn):
-    sql = "DELETE FROM asd"
+    sql = "DELETE FROM cars"
     cur = conn.cursor()
     cur.execute(sql)
     conn.commit()
@@ -31,10 +31,17 @@ def main():
     database = r"vehicles.db"
     conn = create_connection(database)
     with conn:
-        select_vehicles()
-        id = input("Select id to update: ")
-        delete(conn, id)
-        # delete_all(conn);
+        choice = input(
+            "What would you like to do?\n1.Delete specify car \n2.Delete all cars or q for quit:"
+        )
+        match choice:
+            case "1":
+                select_vehicles()
+                id = input("Select id to update: ")
+                delete(conn, id)
+
+            case "2":
+                delete_all(conn)
 
 
 if __name__ == "__main__":
