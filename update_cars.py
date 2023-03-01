@@ -140,6 +140,7 @@ def main():
                     ),
                 )
                 main()
+
             case "2":
                 select_vehicles()
                 id = input("Select id to update: ")
