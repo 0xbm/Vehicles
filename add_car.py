@@ -13,8 +13,8 @@ def create_connection(db_file):
 
 
 def create_project(conn, project):
-    sql = """ INSERT INTO cars(make,model,registration_number,technical_inspection)
-              VALUES(?,?,?,?) """
+    sql = """ INSERT INTO cars(make, model, registration_number, vin, capacity, kw, technical_inspection)
+              VALUES(?,?,?,?,?,?,?) """
     cur = conn.cursor()
     cur.execute(sql, project)
     conn.commit()
@@ -48,11 +48,18 @@ def main():
                 make = input("Car make: ")
                 model = input("Car model: ")
                 reg_number = input("Registration number: ")
+                vin = input("VIN number: ")
+                capacity = input("capacity: ")
+                kw = input("Kw: ")
                 tech_insp = input("Technical inspection date (one in year): ")
+
                 project = (
                     make.capitalize(),
                     model.capitalize(),
                     reg_number.upper(),
+                    vin,
+                    capacity,
+                    kw,
                     tech_insp,
                 )
                 project_id = create_project(conn, project)
@@ -61,15 +68,6 @@ def main():
             case "q":
                 print("\x1b[5;30;42m" + "QUIT" + "\x1b[0m")
                 quit()
-
-        # made = input("Car made: ")
-        # model = input("Car model: ")
-        # technical_insp = input("Tech insp: ")
-        # project = (made, model, technical_insp)
-        # # project = ("skoda", "fabia", "2023-02-23")
-        # project_id = create_project(conn, project)
-
-        # main()
 
         # tasks
         # task_1 = (
