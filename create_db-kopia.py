@@ -50,7 +50,7 @@ def main():
                                         fuel_for_the_next_month FLOAT
                                     ); """
 
-    sql_create_addons_table = """ CREATE TABLE IF NOT EXISTS paragons (
+    sql_create_paragons_table = """ CREATE TABLE IF NOT EXISTS paragons (
                                         id INTEGER PRIMARY KEY,
                                         date TEXT,
                                         fuel FLOAT
@@ -59,6 +59,7 @@ def main():
     sql_create_addons_table = """ CREATE TABLE IF NOT EXISTS addons (
                                         id INTEGER PRIMARY KEY,
                                         vin TEXT,
+                                        fuel_type TEXT,
                                         capacity FLOAT,
                                         kw FLOAT,
                                         technical_inspection TEXT
@@ -81,6 +82,7 @@ def main():
         create_table(conn, sql_create_make_table)
         create_table(conn, sql_create_model_table)
         create_table(conn, sql_create_card_table)
+        create_table(conn, sql_create_paragons_table)
         create_table(conn, sql_create_addons_table)
         # create_table(conn, sql_create_tasks_table)
     else:
