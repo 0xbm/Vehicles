@@ -1,6 +1,6 @@
 from openpyxl import Workbook
 import calendar
-
+import openpyxl
 
 # class Style:
 #     def __init__(self, Workbook, ws):
@@ -72,9 +72,11 @@ class Style:
         wb.save("style.xlsx")
 
     def merge_cells(self):
-        wb = Workbook()
+        # wb = Workbook()
+        wb = openpyxl.load_workbook("style.xlsx")
         # ws = wb[months[0]]
-        ws = wb.get_sheet_by_name["January"]
+        # ws = wb.get_sheet_by_name["January"]
+        ws = wb["January"]
         # usatw zmiene sheet np na luty
         ws.merge_cells("A1:E1")
         ws.merge_cells("A3:C3")
@@ -85,8 +87,19 @@ class Style:
         ws.merge_cells("B9:D9")
         ws.merge_cells("B10:D10")
         ws.merge_cells("B11:D11")
+        wb.save("style.xlsx")
+
+    def copy(self):
+        wb = openpyxl.load_workbook("style.xlsx")
+        ws = wb["January"]
+
+    def sheetnames(self):
+        wb = openpyxl.load_workbook("style.xlsx")
+        for sheet in wb.worksheets:
+            print(wb.sheetnames)
 
 
 styl = Style()
 # styl.months()
-styl.merge_cells()
+# styl.merge_cells()
+styl.sheetnames()
