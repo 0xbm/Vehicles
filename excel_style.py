@@ -87,6 +87,7 @@ class Style:
         ws.merge_cells("B9:D9")
         ws.merge_cells("B10:D10")
         ws.merge_cells("B11:D11")
+
         wb.save("style.xlsx")
 
     def copy(self):
@@ -100,6 +101,6 @@ class Style:
 
 
 styl = Style()
-# styl.months()
-# styl.merge_cells()
-styl.sheetnames()
+styl.months()
+styl.merge_cells()
+# styl.sheetnames()
