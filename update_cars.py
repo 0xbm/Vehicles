@@ -12,7 +12,7 @@ def create_connection(db_file):
     return conn
 
 
-def update_make(conn, project):
+def edit_make(conn, project):
     sql = """ UPDATE make
               SET make = ?
               WHERE id = ?"""
@@ -22,7 +22,7 @@ def update_make(conn, project):
     conn.commit()
 
 
-def update_model(conn, project):
+def edit_model(conn, project):
     sql = """ UPDATE model
               SET model = ?
               WHERE id = ?"""
@@ -48,8 +48,8 @@ def select_make():
     result = cursor.execute(
         "SELECT id, make FROM make"
     ).fetchall()  # returns array of tupples
-    num_of_vehicles = result
-    print("Select vehicles ID: ", "\x1b[5;30;42m" + str(num_of_vehicles) + "\x1b[0m")
+    num_of_vehicles = " ".join(map(str, result))
+    print("Select make ID: ", "\x1b[5;30;42m" + num_of_vehicles + "\x1b[0m")
 
 
 def select_model():
@@ -58,25 +58,35 @@ def select_model():
     result = cursor.execute(
         "SELECT id, model FROM model"
     ).fetchall()  # returns array of tupples
-    num_of_vehicles = result
-    print("Select vehicles ID: ", "\x1b[5;30;42m" + str(num_of_vehicles) + "\x1b[0m")
+    num_of_vehicles = " ".join(map(str, result))
+    print("Select model ID: ", "\x1b[5;30;42m" + num_of_vehicles + "\x1b[0m")
+
+
+def list_vehicles():
+    con = sqlite3.connect("vehicles.db")
+    cursor = con.cursor()
+    result = cursor.execute(
+        "SELECT make.id, make.make, model.model  FROM make INNER JOIN model ON make.ID=model.ID"
+    ).fetchall()  # returns array of tupples
+    num_of_vehicles = " ".join(map(str, result))
+    print("Your cars: " + "\x1b[5;30;42m" + num_of_vehicles + "\x1b[0m")
 
 
 def main():
     database = r"vehicles.db"
     conn = create_connection(database)
-
+    list_vehicles()
     with conn:
         choice = input(
-            "What would you like to do?\n1.Update make \n2.Update model \n8. Update whole car \nor q for quit: \n"
+            "What would you like to do?\n1.Edit make \n2.Edit model \n8. Edit whole car \nor q for quit: \n"
         )
         match choice:
             case "1":
                 select_make()
-                id = input("Select id to update: ")
+                id = input("Select make ID to edit: ")
                 make = input("Car make: ")
 
-                update_make(
+                edit_make(
                     conn,
                     (
                         make.capitalize(),
@@ -87,10 +97,10 @@ def main():
 
             case "2":
                 select_model()
-                id = input("Select id to update: ")
+                id = input("Select model ID to edit: ")
                 model = input("Car model: ")
 
-                update_model(
+                edit_model(
                     conn,
                     (
                         model.capitalize(),
