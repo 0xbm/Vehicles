@@ -1,6 +1,6 @@
 import sqlite3
 from sqlite3 import Error
-from update_cars import select_make
+from edit_vehicles import Select
 
 
 def create_connection(db_file):
@@ -22,9 +22,11 @@ def delete(conn, id):
 
 def delete_all_make(conn):
     # sql = "DELETE FROM make"
-    sql = "DELETE FROM make, model WHERE id=1"
+    sql = "DELETE FROM make"
+    sql1 = "DELETE FROM model"
     cur = conn.cursor()
     cur.execute(sql)
+    cur.execute(sql1)
     conn.commit()
 
 
@@ -44,7 +46,7 @@ def main():
         )
         match choice:
             case "1":
-                select_make()
+                Select.select_make()
                 id = input("Select id to update: ")
                 delete(conn, id)
 
