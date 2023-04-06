@@ -77,7 +77,7 @@ class Style:
         # ws = wb[months[0]]
         # ws = wb.get_sheet_by_name["January"]
         ws = wb["January"]
-        # usatw zmiene sheet np na luty
+        # usatw zmiene sheet np na luty.
         ws.merge_cells("A1:E1")
         ws.merge_cells("A3:C3")
         ws.merge_cells("A4:C4")
