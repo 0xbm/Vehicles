@@ -47,6 +47,8 @@ del wb["Sheet"]
 wb.save("style.xlsx")
 
 """
+
+
 # wb = Workbook()
 # # ws = wb.active
 
@@ -104,3 +106,6 @@ styl = Style()
 styl.months()
 styl.merge_cells()
 # styl.sheetnames()
+
+# todo zrob wzor arkusza w openpyxl
+# todo zrob kopiowanie arkusza na kolejne miesiace
