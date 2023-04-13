@@ -1,6 +1,9 @@
+import datetime
+
 from openpyxl import Workbook
 import calendar
 import openpyxl
+import datetime
 
 # class Style:
 #     def __init__(self, Workbook, ws):
@@ -63,13 +66,14 @@ wb.save("style.xlsx")
 # wb.save("style.xlsx")
 #######################
 class Style:
-    def months(self, wb=Workbook()):
+    def create_months(self, wb=Workbook()):
         # wb = Workbook()
         # ws = wb.active
         months = [calendar.month_name[i] for i in range(1, 13)]
 
         for worksheet in months:
             wb.create_sheet(worksheet)
+
         del wb["Sheet"]
         wb.save("style.xlsx")
 
@@ -79,10 +83,10 @@ class Style:
         # ws = wb[months[0]]
         # ws = wb.get_sheet_by_name["January"]
         ws = wb["January"]
-        # usatw zmiene sheet np na luty.
+        #  ustaw zmiena sheet np na luty.
         ws.merge_cells("A1:E1")
         ws.merge_cells("A3:C3")
-        ws.merge_cells("A4:C4")
+        ws.merge_cells("A4:B4")
         ws.merge_cells("A1:B1")
         ws.merge_cells("B7:D7")
         ws.merge_cells("B8:D8")
@@ -92,20 +96,69 @@ class Style:
 
         wb.save("style.xlsx")
 
-    def copy(self):
-        wb = openpyxl.load_workbook("style.xlsx")
-        ws = wb["January"]
+        # def copy(self):
+        # wb = openpyxl.load_workbook("style.xlsx")
+        # ws = wb["January"]
 
-    def sheetnames(self):
+        # def sheetnames(self):
+        # wb = openpyxl.load_workbook("style.xlsx")
+        # for sheet in wb.worksheets:
+        # print(wb.sheetnames)
+
+
+class Text:
+    def card_name(self):
         wb = openpyxl.load_workbook("style.xlsx")
-        for sheet in wb.worksheets:
-            print(wb.sheetnames)
+        ws = wb.active
+
+        ws['A1'] = 'ROZLICZENIE MIESIĘCZNE ZUŻYCIA PALIWA'
+        wb.save("style.xlsx")
+
+    def brand(self):
+        wb = openpyxl.load_workbook("style.xlsx")
+        ws = wb.active
+
+        ws['A3'] = 'Pojazd służbowy, marka'
+        wb.save("style.xlsx")
+
+    def registration_number(self):
+        wb = openpyxl.load_workbook("style.xlsx")
+        ws = wb.active
+
+        ws['A4'] = 'Nr rejestracyjny'
+        wb.save("style.xlsx")
+
+    def month(self):
+        wb = openpyxl.load_workbook("style.xlsx")
+        ws = wb.active
+
+        ws['A5'] = 'Miesiąc'
+        ws['B5'] = wb.sheetnames[0]
+        wb.save("style.xlsx")
+
+    def year(self):
+        wb = openpyxl.load_workbook("style.xlsx")
+        ws = wb.active
+
+        ws['C5'] = 'rok'
+        year = datetime.datetime.today().year
+
+        ws['D5'] = year
+        wb.save("style.xlsx")
 
 
 styl = Style()
-styl.months()
+styl.create_months()
 styl.merge_cells()
+
+text = Text()
+text.card_name()
+text.brand()
+text.registration_number()
+text.month()
+text.year()
+
 # styl.sheetnames()
 
-# todo zrob wzor arkusza w openpyxl
-# todo zrob kopiowanie arkusza na kolejne miesiace
+# tod zrob wzor arkusza w openpyxl
+# tod zrob kopiowanie arkusza na kolejne miesiace
