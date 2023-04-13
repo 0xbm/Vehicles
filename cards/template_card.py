@@ -88,11 +88,7 @@ class Style:
         ws.merge_cells("A3:C3")
         ws.merge_cells("A4:B4")
         ws.merge_cells("A1:B1")
-        ws.merge_cells("B7:D7")
-        ws.merge_cells("B8:D8")
-        ws.merge_cells("B9:D9")
-        ws.merge_cells("B10:D10")
-        ws.merge_cells("B11:D11")
+
 
         wb.save("style.xlsx")
 
