@@ -88,7 +88,12 @@ class Style:
         ws.merge_cells("A3:C3")
         ws.merge_cells("A4:B4")
         ws.merge_cells("A1:B1")
-
+        ws.merge_cells("A6:C6")
+        ws.merge_cells("A7:C7")
+        ws.merge_cells("A8:C8")
+        ws.merge_cells("A9:C9")
+        ws.merge_cells("A10:C10")
+        ws.merge_cells("A11:C11")
 
         wb.save("style.xlsx")
 
@@ -142,6 +147,41 @@ class Text:
         ws['D5'] = year
         wb.save("style.xlsx")
 
+    def count_beginning_month(self):
+        wb = openpyxl.load_workbook("style.xlsx")
+        ws = wb.active
+
+        ws['A6'] = '1. Stan licznika na początku miesiąca'
+        wb.save("style.xlsx")
+
+    def count_ending_month(self):
+        wb = openpyxl.load_workbook("style.xlsx")
+        ws = wb.active
+
+        ws['A7'] = '2. Stan licznika na końcu miesiąca'
+        wb.save("style.xlsx")
+
+    def km_in_month(self):
+        wb = openpyxl.load_workbook("style.xlsx")
+        ws = wb.active
+
+        ws['A8'] = '3. Przejechano km/mth w miesiącu'
+        wb.save("style.xlsx")
+
+    def fuel__reamaining_last_month(self):
+        wb = openpyxl.load_workbook("style.xlsx")
+        ws = wb.active
+
+        ws['A9'] = '4.	Stan paliwa pozostałego z ubiegłego miesiąca'
+        wb.save("style.xlsx")
+
+    def fuel_purchased_in_month(self):
+        wb = openpyxl.load_workbook("style.xlsx")
+        ws = wb.active
+
+        ws['A10'] = '5.Ilość paliwa zakupionego w miesiącu '
+        wb.save("style.xlsx")
+
 
 styl = Style()
 styl.create_months()
@@ -153,6 +193,11 @@ text.brand()
 text.registration_number()
 text.month()
 text.year()
+text.count_beginning_month()
+text.count_ending_month()
+text.fuel__reamaining_last_month()
+text.fuel_purchased_in_month()
+text.km_in_month()
 
 # styl.sheetnames()
 
