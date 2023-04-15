@@ -17,7 +17,7 @@ class Text:
 
     def month(self):
         ws['A5'] = 'Miesiąc'
-        ws['B5'] = wb.sheetnames[0]
+        ws['B5'] = wb.sheetnames[0][0:3]
 
     def year(self):
         ws['C5'] = 'rok'
@@ -55,6 +55,16 @@ class Text:
     def fuel_for_next_month(self):
         ws['A28'] = '10.Pozostało paliwa na m-c następny'
 
+    def table_text(self):
+        ws['B12'] = 'LP'
+        ws['C12'] = 'Data zakupu'
+        ws['D12'] = 'Olej napędowy (L)'
+        ws['E12'] = 'Benzyna (L)'
+        ws['B31'] = 'Podpis'
+        ws['D30'] = 'Sporządził'
+        ws['E30'] = 'Sprawdził'
+        ws['B32'] = 'Data'
+
 
 text = Text()
 text.card_name()
@@ -72,5 +82,5 @@ text.fuel_consumption()
 text.limit_norm()
 text.excessive_consumption()
 text.fuel_for_next_month()
-
+text.table_text()
 wb.save("card.xlsx")
