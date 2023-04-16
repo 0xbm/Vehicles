@@ -28,7 +28,7 @@ def delete_all_make(conn):
     cur.execute(sql)
     cur.execute(sql1)
     conn.commit()
-ZMIEN NAZEWNICTWO: cars na vehicles  ORAZ tablkei na wielka litere
+#todo ZMIEN NAZEWNICTWO: cars na vehicles  ORAZ tablkei na wielka litere
 
 def delete_all_model(conn):
     sql = "DELETE FROM model"
