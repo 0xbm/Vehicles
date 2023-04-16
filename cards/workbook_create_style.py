@@ -41,7 +41,7 @@ class Style:
         wb = openpyxl.load_workbook("card.xlsx")
         ws = wb["January"]
 
-        #ws.row_dimensions[1].height = 70
+        ws.row_dimensions[31].height = 30
         ws.column_dimensions['B'].width = 4
         ws.column_dimensions['C'].width = 10
         ws.column_dimensions['D'].width = 15
