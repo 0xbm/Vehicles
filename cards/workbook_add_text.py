@@ -1,5 +1,6 @@
 import openpyxl
 import datetime
+from openpyxl.styles import Font
 
 wb = openpyxl.load_workbook("card.xlsx")
 ws = wb.active
@@ -8,7 +9,7 @@ ws = wb.active
 class Text:
     def card_name(self):
         ws['A1'] = 'ROZLICZENIE MIESIĘCZNE ZUŻYCIA PALIWA'
-
+        ws['A1'].font =Font(bold=True)
     def brand(self):
         ws['A3'] = 'Pojazd służbowy, marka'
 
@@ -18,12 +19,13 @@ class Text:
     def month(self):
         ws['A5'] = 'Miesiąc'
         ws['B5'] = wb.sheetnames[0][0:3]
-
+        ws['B5'].font = Font(bold=True)
     def year(self):
         ws['C5'] = 'rok'
         year = datetime.datetime.today().year
 
         ws['D5'] = year
+        ws['D5'].font =Font(bold=True)
 
     def count_beginning_month(self):
         ws['A6'] = '1. Stan licznika na początku miesiąca'
