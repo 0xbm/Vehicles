@@ -1,0 +1,26 @@
+table {
+  background-color: #b4ae80;
+}
+
+table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+
+button {
+  width: 80px;
+  padding: 5px;
+  margin: 0 3px;
+  background-color: #ff7e00;
+  outline: none;
+  border: 1px solid #ff7e00;
+  box-shadow: 2px 2px 2px #3f3f3f;
+}
+
+button:hover {
+  box-shadow: 2px 2px 3px ;
+}
+
+button:active {
+  box-shadow: 1px 1px 3px ;
+}
