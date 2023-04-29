@@ -32,7 +32,7 @@ def edit_model(conn, project):
 
 
 class Select:
-    def select_make():
+    def select_make(self):
         con = sqlite3.connect("vehicles.db")
         cursor = con.cursor()
         result = cursor.execute(
@@ -41,7 +41,7 @@ class Select:
         num_of_vehicles = "|".join(map(str, result))
         print("Select make ID: ", "\x1b[5;30;42m" + num_of_vehicles + "\x1b[0m")
 
-    def select_model():
+    def select_model(self):
         con = sqlite3.connect("vehicles.db")
         cursor = con.cursor()
         result = cursor.execute(
@@ -53,7 +53,7 @@ class Select:
 
 
 class Vehicles:
-    def list_vehicles():
+    def list_vehicles(self):
         con = sqlite3.connect("vehicles.db")
         cursor = con.cursor()
         result = cursor.execute(
