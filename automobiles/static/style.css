@@ -1,26 +1,49 @@
 table {
-  background-color: #b4ae80;
+    background-color: #b4ae80;
+    width: 80%;
 }
 
 table, th, td {
-            border: 1px solid black;
-            border-collapse: collapse;
-        }
+    border: 1px solid black;
+    border-collapse: collapse;
 
-button {
-  width: 80px;
-  padding: 5px;
-  margin: 0 3px;
-  background-color: #ff7e00;
-  outline: none;
-  border: 1px solid #ff7e00;
-  box-shadow: 2px 2px 2px #3f3f3f;
+}
+
+.tab_id{
+    width:0.5%;
+    background-color:#228b22;
+}
+
+.tab {
+    width: 15%;
+    background-color: #228b22;
+}
+
+.btn {
+    padding: 5px;
+    margin: 0 3px;
+    background-color: #ff7e00;
+    outline: none;
+    border: 1px solid #ff7e00;
+    box-shadow: 2px 2px 2px #3f3f3f;
+}
+
+.btn1 {
+    width: 50px;
+}
+
+.btn2 {
+    width: 20px;
+}
+
+.btn3 {
+    width: 20px;
 }
 
 button:hover {
-  box-shadow: 2px 2px 3px ;
+    box-shadow: 2px 2px 3px;
 }
 
 button:active {
-  box-shadow: 1px 1px 3px ;
+    box-shadow: 1px 1px 3px;
 }
