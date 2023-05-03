@@ -9,6 +9,5 @@ from django.http import HttpResponse
 def index(request):
     return render(request, "index.html")
 
-# todo dodaj css do widoku
-# todo przezuc style z index.html do css
 # todo dodaj btn obok edit (+) albo u gory
+# todo dodaj mozliwosc rejestracji (register , login)
