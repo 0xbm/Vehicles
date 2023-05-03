@@ -3,20 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <title>Automobile</title>
-<!--    {% load static %}-->
-    <link href="/static/style.css" rel="stylesheet">
+    <!--    {% load static %}-->
+    <link href="/automobiles/static/style.css" rel="stylesheet">
+    <!-- jesli nie widzi stylu to usun automobiles w w/w sciezce -->
 </head>
 <body>
 <h2>VEHICLES</h2>
-<table style="width:80%">
+<table>
     <tr>
-        <th style="width:0.5%" bgcolor="#228b22">ID
-        </th>
-        <th style="width: 15%" bgcolor="#228b22">Brand</th>
-        <th style="width: 15%" bgcolor="#228b22">Model</th>
-        <th style="width: 15%" bgcolor="#228b22">Reg number</th>
-        <th style="width: 15%" bgcolor="#228b22">Edit</th>
-
+        <th class="tab_id">ID</th>
+        <th class="tab">Brand</th>
+        <th class="tab">Model</th>
+        <th class="tab">Reg number</th>
+        <th class="tab">Edit / Add / Remove</th>
     </tr>
     <tr>
         <td>1</td>
@@ -24,22 +23,22 @@
         <td>3</td>
         <td>4</td>
         <td>
-            <button type="submit">Edit</button>
+            <button class="btn button1" type="submit">Edit</button>
+            <button class="btn button2" type="submit">+</button>
+            <button class="btn button3" type="submit">-</button>
         </td>
-
     <tr>
         <td>1</td>
         <td>2</td>
         <td>3</td>
         <td>4</td>
         <td>
-            <button type="submit">Edit</button>
+            <button class="btn button1" type="submit">Edit</button>
+            <button class="btn button2" type="submit">+</button>
+            <button class="btn button3" type="submit">-</button>
         </td>
-
     </tr>
-
 </table>
-<p>Vehicles </p>
+<p>Vehicles</p>
 </body>
-
 </html>
