@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+{% load bootstrap4 %}
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content=
+            "width=device-width, initial-scale=1">
+    <title>TYTUL NA STRONIE - LABEL U GORY</title>
+    {% bootstrap_css %}
+    {% bootstrap_javascript jquery='full'%}
+</head>
+<body>
+<nav class=
+             "navbar navbar-expand-md navbar-light bg-lightŁ mb-4 border">
+    <a class="navbar-brand" href=
+            "{% url 'automobiles:index' %}">AutoMobile</a>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav ml-auto">
+            {% if user.is_authenticated %}
+            <li class="nav-item"><span class="navbar-text">Hello, {{ user.username }}.</span></li>
+            <li class="nav-item">
+                <a class="nav-link" href=
+                        "{% url 'users:logout' %}">Log out</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href=
+                        "{% url 'users:logout' %}">Delete Account</a>
+                <!--                zmien tutaj users:logout na user:delete-->
+            </li>
+            {% else %}
+            <li class="nav-item">
+                <a class="nav-link" href=
+                        "{% url 'users:register' %}">Register</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href=
+                        "{% url 'users:login' %}">Log in</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href=
+                        "{% url 'users:pricing' %}">Pricing</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href=
+                        "{% url 'automobiles:contact' %}">Contact</a>
+            </li>
+            {% endif %}
+        </ul>
+    </div>
+</nav>
+<!--<h1>login</h1>-->
+<!--<h1>reg</h1>-->
+<!--<h2>BASEThis is my Automobile project to check vehicles</h2>-->
+
+{% block page_header %}{% endblock page_header %}
+
+<!--<h2>BASEThis is my Automobile project to check vehicles</h2>-->
+<div>
+    {% block content %}{% endblock content %}
+</div>
+</body>
+</html>
