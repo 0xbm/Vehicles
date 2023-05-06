@@ -8,3 +8,4 @@
 /todo.py
 /db.sqlite3
 /migrations/
+/users/migrations/
