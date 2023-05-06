@@ -31,7 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'automobiles.apps.AutomobilesConfig',
+    #'automobiles.apps.AutomobilesConfig',
     'automobiles',
     'users',
     'bootstrap4',
