@@ -1,44 +1,61 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Automobile</title>
-    <!--    {% load static %}-->
-    <link href="/automobiles/static/style.css" rel="stylesheet">
-    <!-- jesli nie widzi stylu to usun automobiles w w/w sciezce -->
-</head>
-<body>
-<h2>VEHICLES</h2>
-<table>
-    <tr>
-        <th class="tab_id">ID</th>
-        <th class="tab">Brand</th>
-        <th class="tab">Model</th>
-        <th class="tab">Reg number</th>
-        <th class="tab">Edit / Add / Remove</th>
-    </tr>
-    <tr>
-        <td>1</td>
-        <td>2</td>
-        <td>3</td>
-        <td>4</td>
-        <td>
-            <button class="btn button1" type="submit">Edit</button>
-            <button class="btn button2" type="submit">+</button>
-            <button class="btn button3" type="submit">-</button>
-        </td>
-    <tr>
-        <td>1</td>
-        <td>2</td>
-        <td>3</td>
-        <td>4</td>
-        <td>
-            <button class="btn button1" type="submit">Edit</button>
-            <button class="btn button2" type="submit">+</button>
-            <button class="btn button3" type="submit">-</button>
-        </td>
-    </tr>
-</table>
-<p>Vehicles</p>
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% block page_header %}
+<!--<h1>&#45;&#45;&#45;&#45;&#45;&#45;</h1>-->
+<!--<h1>TO JEST INDEX</h1>-->
+<!--<h1>&#45;&#45;&#45;&#45;&#45;&#45;</h1>-->
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+        <h1 class="display-4">Track your vehicles!</h1>
+        <p class="lead">Check vehicles.....</p>
+        <a class="btn btn-primary btn-lg" href="{% url 'users:register' %}" role="button">Register &raquo;</a>
+        <a class="btn btn-primary btn-lg" href="{% url 'users:login' %}" role="button">Login &raquo;</a>
+    </div>
+</div>
+{% endblock page_header %}
+
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Automobile</title>-->
+<!--    &lt;!&ndash;    {% load static %}&ndash;&gt;-->
+<!--    -->
+<!--    &lt;!&ndash; jesli nie widzi stylu to usun automobiles w w/w sciezce &ndash;&gt;-->
+<!--</head>-->
+<!--<body>-->
+<!--<h2>VEHICLES</h2>-->
+<!--<table>-->
+<!--    <tr>-->
+<!--        <th class="tab_id">ID</th>-->
+<!--        <th class="tab">Brand</th>-->
+<!--        <th class="tab">Model</th>-->
+<!--        <th class="tab">Reg number</th>-->
+<!--        <th class="tab">Edit / Add / Remove</th>-->
+<!--    </tr>-->
+<!--    <tr>-->
+<!--        <td>1</td>-->
+<!--        <td>2</td>-->
+<!--        <td>3</td>-->
+<!--        <td>4</td>-->
+<!--        <td>-->
+<!--            <button class="btn button1" type="submit">Edit</button>-->
+<!--            <button class="btn button2" type="submit">+</button>-->
+<!--            <button class="btn button3" type="submit">-</button>-->
+<!--        </td>-->
+<!--    <tr>-->
+<!--        <td>1</td>-->
+<!--        <td>2</td>-->
+<!--        <td>3</td>-->
+<!--        <td>4</td>-->
+<!--        <td>-->
+<!--            <button class="btn button1" type="submit">Edit</button>-->
+<!--            <button class="btn button2" type="submit">+</button>-->
+<!--            <button class="btn button3" type="submit">-</button>-->
+<!--        </td>-->
+<!--    </tr>-->
+<!--</table>-->
+<!--<p>Vehicles</p>-->
+<!--</body>-->
+<!--</html>-->
