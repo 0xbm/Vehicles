@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     #'automobiles.apps.AutomobilesConfig',
     'automobiles',
     'users',
+    'contact',
     'bootstrap4',
     'django.contrib.admin',
     'django.contrib.auth',
