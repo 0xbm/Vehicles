@@ -14,7 +14,3 @@ def register(request):
             return redirect("automobiles:index")
     context = {"form": form}
     return render(request, "registration/register.html", context)
-
-
-def pricing(request):
-    return render(request, "pricing/pricing.html")
