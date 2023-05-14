@@ -1,10 +1,7 @@
-/vehicles.db
-/lastrowid.py
 /.DS_Store
 /identifier.sqlite
-/todo.py
 /db.sqlite3
 /migrations/
 /users/migrations/
-/cards
 /sql
+/.env
