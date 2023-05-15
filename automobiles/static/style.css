@@ -9,9 +9,9 @@ table, th, td {
 
 }
 
-.tab_id{
-    width:0.5%;
-    background-color:#228b22;
+.tab_id {
+    width: 0.5%;
+    background-color: #228b22;
 }
 
 .tab {
@@ -46,4 +46,12 @@ button:hover {
 
 button:active {
     box-shadow: 1px 1px 3px;
+}
+
+body {
+  background-color: #282a36;
+}
+
+container {
+  background-color: #282a36;
 }
