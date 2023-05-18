@@ -3,5 +3,6 @@ from . import views
 
 app_name = 'pricing'
 urlpatterns = [
-    path("", views.index, name="pay"),
+    path("", views.pricing, name="pricing"),
+    path("pay", views.pay, name="pay"),
 ]
