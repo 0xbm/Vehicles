@@ -3,6 +3,12 @@
 
 {% block page_header %}
 <h2>PRICING</h2>
+<form action="{% url 'pricing:pay' %}" method="post">
+    {% csrf_token %}
+
+
+    <button type="submit" name='btn'>PAY</button>
+</form>
 
 {% endblock page_header %}
 
