@@ -28,8 +28,7 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link" href=
-                        "{% url 'users:logout' %}">Delete Account</a>
-                <!--                zmien tutaj users:logout na user:delete-->
+                        "{% url 'users:delete' %}">Delete Account</a>
             </li>
             {% else %}
             <li class="nav-item">
@@ -55,7 +54,17 @@
 <!--<h1>login</h1>-->
 <!--<h1>reg</h1>-->
 <!--<h2>BASEThis is my Automobile project to check vehicles</h2>-->
-<table>
+
+{% block page_header %}
+
+{% endblock page_header %}
+
+<!--<h2>BASEThis is my Automobile project to check vehicles</h2>-->
+
+{% block content %}
+<h3>DEMO</h3>
+
+<table class="center">
     <tr>
         <th class="tab_id">ID</th>
         <th class="tab">Brand</th>
@@ -63,12 +72,41 @@
         <th class="tab">Reg number</th>
         <th class="tab">Edit / Add / Remove</th>
     </tr>
+    <tr>
+        <td>1</td>
+        <td>Skoda</td>
+        <td>Fabia</td>
+        <td>WW1234</td>
+        <td>
+            <button class="btn button1" type="submit">Edit</button>
+            <button class="btn button2" type="submit">+</button>
+            <button class="btn button3" type="submit">-</button>
+        </td>
+    <tr>
+        <td>2</td>
+        <td>Ford</td>
+        <td>Transit</td>
+        <td>WW1234</td>
+        <td>
+            <button class="btn button1" type="submit">Edit</button>
+            <button class="btn button2" type="submit">+</button>
+            <button class="btn button3" type="submit">-</button>
+        </td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>...</td>
+        <td>...</td>
+        <td>...</td>
+        <td>
+            <button class="btn button1" type="submit">Edit</button>
+            <button class="btn button2" type="submit">+</button>
+            <button class="btn button3" type="submit">-</button>
+        </td>
+    <tr>
 </table>
-{% block page_header %}{% endblock page_header %}
 
-<!--<h2>BASEThis is my Automobile project to check vehicles</h2>-->
-<div>
-    {% block content %}{% endblock content %}
-</div>
+{% endblock content %}
+
 </body>
 </html>
