@@ -105,8 +105,14 @@
         </td>
     <tr>
 </table>
+====================TEST BELOW====================
+<form action="{% url 'automobiles:vehicle' %}" method="post">
+    {% csrf_token %}
+    <button class="btn button3" type="submit">Add VEHICLE to DATABASE</button>
+</form>
 
-{% endblock content %}
+
+{% endblock %}
 
 </body>
 </html>

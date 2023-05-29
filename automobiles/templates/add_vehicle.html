@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block page_header %}
+<center><h1>Add VEHICLE to DATABASE</h1></center>
+{% endblock page_header %}
+
+{% block content %}
+
+<form method="POST" action=".">
+    {% csrf_token %}
+
+    {{form}}
+    <button>Send</button>
+</form>
+
+{% endblock %}
