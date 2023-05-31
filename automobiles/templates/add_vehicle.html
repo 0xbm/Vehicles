@@ -6,11 +6,17 @@
 
 {% block content %}
 
-<form method="POST" action=".">
+<form action="." method="POST">
     {% csrf_token %}
 
     {{form}}
     <button>Send</button>
 </form>
+
+<form action="{% url 'automobiles:index' %}" method="POST">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-outline-secondary mb-3 hvr">Back</button>
+</form>
+
 
 {% endblock %}
