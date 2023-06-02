@@ -14,3 +14,7 @@ def register(request):
             return redirect("automobiles:index")
     context = {"form": form}
     return render(request, "registration/register.html", context)
+
+
+def delete(request):
+    return render(request, "delete/remove_user.html")
