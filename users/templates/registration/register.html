@@ -5,8 +5,8 @@
     {% csrf_token %}
     {{ form.as_p }}
 
-    <button name="submit">Register</button>
-    <input type="hidden" name="next" value="{% url 'automobiles:index' %}" />
+    <button name="submit" class="btn btn-primary">Create Account</button>
+    <input type="hidden" name="next" value="{% url 'automobiles:index' %}"/>
 </form>
 
 {% endblock content %}
