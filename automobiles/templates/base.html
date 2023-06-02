@@ -11,17 +11,35 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content=
             "width=device-width, initial-scale=1">
-    <title>TYTUL NA STRONIE - LABEL U GORY</title>
+    <title>AUTOMOBILES</title>
 </head>
 <body>
 <nav class=
-             "navbar navbar-expand-md navbar-light bg-light mb-4 border">
+             "navbar navbar-expand-md navbar-dark bg-dark mb-3 border">
     <a class="navbar-brand" href=
-            "{% url 'automobiles:index' %}">AutoMobile</a>
+            "{% url 'automobiles:index' %}">
+        <img
+                src="/static/company_logo.png" width="30" height="30"
+                class="d-inline-block align-top" alt=""> AutoMobile
+    </a>
     <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav ml-auto">
             {% if user.is_authenticated %}
             <li class="nav-item"><span class="navbar-text">Hello, {{ user.username }}.</span></li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                   aria-haspopup="true" aria-expanded="false">
+                    Support
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#">Starter Support ></a>
+                    <a class="dropdown-item" href="#">Professional Support ></a>
+                    <a class="dropdown-item" href="#">Business Support ></a>
+                    <a class="dropdown-item" href="#">Enterprise Support ></a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                </div>
+            </li>
             <li class="nav-item">
                 <a class="nav-link" href=
                         "{% url 'users:logout' %}">Log out</a>
@@ -45,8 +63,47 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link" href=
-                        "{% url 'contact:msg_me' %}">Contact</a>
+                        "{% url 'contact:msg_me' %}">CONTACT US</a>
             </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                   aria-haspopup="true" aria-expanded="false">
+                    SIGN IN
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#"><b>MyAccount:</b> manage your subscription ></a>
+                    <a class="dropdown-item" href="#"><b>Cloud Console:</b> manage your cloud business product ></a>
+                    <a class="dropdown-item" href="#"><b>Partner Portal:</b> management for Resellers ></a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                   aria-haspopup="true" aria-expanded="false">
+                    Partners
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="https://www.malwarebytes.com"><img
+                src="/static/company_logo.png" width="30" height="30"
+                class="d-inline-block align-top" alt="">malwarebytes ></a>
+                    <a class="dropdown-item" href="#"><img
+                src="/static/company_logo.png" width="30" height="30"
+                class="d-inline-block align-top" alt="">2 ></a>
+                    <a class="dropdown-item" href="#"><img
+                src="/static/company_logo.png" width="30" height="30"
+                class="d-inline-block align-top" alt="">3 ></a>
+                    <a class="dropdown-item" href="#"><img
+                src="/static/company_logo.png" width="30" height="30"
+                class="d-inline-block align-top" alt="">3 ></a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                </div>
+            </li>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
             {% endif %}
         </ul>
     </div>
