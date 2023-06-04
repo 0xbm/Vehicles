@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 
 
 {% block page_header %}
@@ -6,16 +7,25 @@
 {% endblock page_header %}
 
 {% block content %}
-<form action="{% url 'automobiles:index' %}" method="POST">
+<form action="{% url 'automobiles:home' %}" method="POST">
     {% csrf_token %}
 
     {{ form.as_p }}
     <button>Send</button>
 </form>
 
-<form action="{% url 'automobiles:index' %}" method="POST">
+<form action="{% url 'automobiles:home' %}" method="POST">
     {% csrf_token %}
     <button type="submit" class="btn btn-outline-secondary mb-3 hvr">Back</button>
 </form>
 
-{% endblock content %}
+
+<div class="space"></div>
+<hr class="my-1">
+<footer class="absolute">
+    <div class="left">&copy; {{ current_year }} Some rights reserved.</div>
+    <div class="right">IKONY GITHUB TWITTER FB</div>
+</footer>
+
+{% endblock %}
+

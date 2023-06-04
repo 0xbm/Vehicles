@@ -14,7 +14,7 @@
     <button>Send</button>
 </form>
 
-<form action="{% url 'automobiles:index' %}" method="POST">
+<form action="{% url 'automobiles:home' %}" method="POST">
     {% csrf_token %}
     <button type="submit" class="btn btn-outline-secondary mb-3 hvr">Back</button>
 </form>
