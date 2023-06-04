@@ -5,3 +5,5 @@
 /users/migrations/
 /sql
 /.env
+/automobiles/static/style-kopia.css
+/automobiles/templates/base-kopia.html
