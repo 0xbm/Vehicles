@@ -4,7 +4,9 @@ from .models import Vehicle
 
 
 class VehicleForm(ModelForm):
-    brand = forms.TextInput()
+    name = forms.TextInput()
+
     class Meta:
         model = Vehicle
-        fields = ['brand', 'model', 'reg_number']
+        fields = ['name', 'brand', 'model', 'reg_number', 'tech_insp']
+
