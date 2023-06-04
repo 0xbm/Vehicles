@@ -4,6 +4,7 @@ from . import views
 app_name = 'users'
 urlpatterns = [
     path("", include("django.contrib.auth.urls")),
-    path("register/", views.register, name="register"),
-    path("delete/", views.delete, name="delete"),
+    path("register_user/", views.register_user, name="register_user"),
+    path("delete_user/", views.delete_user, name="delete_user"),
+    path("login_user/", views.login_user, name="logins"),
 ]
