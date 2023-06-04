@@ -1,0 +1,75 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="{% url 'automobiles:home' %}">
+        <img src="/static/company_logo.png" width="30"
+             height="30" class="d-inline-block align-top"
+             alt="">AutoMobile
+    </a>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+
+            {% if user.is_authenticated %}
+
+            <li class="nav-item"><span class="navbar-text">Hello, {{ user.username }}.</span></li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Features</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Support
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" href="#">Starter Support ></a>
+                    <a class="dropdown-item" href="#">Professional Support ></a>
+                    <a class="dropdown-item" href="#">Business Support ></a>
+                    <a class="dropdown-item" href="#">Enterprise Support ></a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href=
+                        "{% url 'users:logout' %}">Log out</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href=
+                        "{% url 'users:delete_user' %}">Delete Account</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href=
+                        "{% url 'automobiles:list_vehicles' %}">all_vehicles</a>
+            </li>
+
+            {% else %}
+
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'pricing:pricing' %}">Pricing</a>
+            </li>
+            <!--            <li class="nav-item">-->
+            <!--                <a class="nav-link" href="{% url 'users:register_user' %}">Register</a>-->
+            <!--            </li>-->
+            <!--            <li class="nav-item">-->
+            <!--                <a class="nav-link" href="{% url 'users:login' %}">Log in</a>-->
+            <!--            </li>-->
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'contact:msg_me' %}">CONTACT US</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    SIGN IN
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" href=
+                            "{% url 'users:login' %}"><b>MyAccount:</b> manage your subscription ></a>
+                    <a class="dropdown-item" href="{% url 'users:login' %}"><b>Cloud Console:</b> manage your cloud
+                        business product ></a>
+                    <a class="dropdown-item" href="{% url 'users:login' %}"><b>Partner Portal:</b> management for
+                        Resellers ></a>
+                    <div class="dropdown-divider"></div>
+                </div>
+            </li>
+
+            {% endif %}
+
+        </ul>
+    </div>
+</nav>
