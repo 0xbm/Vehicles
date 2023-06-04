@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load bootstrap4 %}
+{% load static %}
 
 
 {% block page_header %}
@@ -17,7 +18,14 @@
     {% buttons %}
     <button name="submit" class="btn btn-primary">Sign in</button>
     {% endbuttons %}
-    <input type="hidden" name="next" value="{% url 'automobiles:index' %}"/>
+    <input type="hidden" name="next" value="{% url 'automobiles:home' %}"/>
 </form>
-<p>Don’t have an account? <a href="{% url 'users:register' %}">Sign up</a></p>
+<p>Don’t have an account? <a href="{% url 'users:register_user' %}">Sign up</a></p>
+
+<div class="space"></div>
+<hr class="my-1">
+<footer class="absolute">
+    <div class="left">&copy; {{ current_year }} Some rights reserved.</div>
+    <div class="right">IKONY GITHUB TWITTER FB</div>
+</footer>
 {% endblock content %}
