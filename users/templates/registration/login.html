@@ -7,8 +7,6 @@
 <h2>Sign in</h2>
 {% endblock page_header %}
 
-
-
 {% block content %}
 <!--<p>Your username and password didn't match. Please try again.</p>-->
 <form method="post" action="{% url 'users:login' %}" class="form">
@@ -22,10 +20,7 @@
 </form>
 <p>Don’t have an account? <a href="{% url 'users:register_user' %}">Sign up</a></p>
 
-<div class="space"></div>
-<hr class="my-1">
-<footer class="absolute">
-    <div class="left">&copy; {{ current_year }} Some rights reserved.</div>
-    <div class="right">IKONY GITHUB TWITTER FB</div>
-</footer>
-{% endblock content %}
+
+{% include 'footer.html' %}
+
+{% endblock  %}
