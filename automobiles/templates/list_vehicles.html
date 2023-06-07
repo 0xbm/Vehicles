@@ -19,10 +19,13 @@
         <h5 class="card-title">vehicle: {{ vehicle }}</h5>
         <p class="card-text">
         <ul>
-            <li><strong> number :</strong>{{ vehicle.reg_number }}</li>
-            <li><strong>tech_insp :</strong>{{ vehicle.tech_insp }}</li>
+            <li><strong> reg number :</strong>{{ vehicle.reg_number }}</li>
+            <li><strong>tech_insp_date :</strong>{{ vehicle.tech_insp }}</li>
         </ul>
         </p>
+        {% if vehicle.vehicle_image %}
+        <img class='size' src="{{ vehicle.vehicle_image.url }}" alt=""/>
+        {% endif %}
         <a href="#" class="btn btn-primary">EDIT</a>
     </div>
 </div>

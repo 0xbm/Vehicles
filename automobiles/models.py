@@ -28,14 +28,15 @@ class Model(models.Model):
 
 class Vehicle(models.Model):
     name = models.CharField('Name', max_length=20)
-    brand = models.ManyToManyField(Brand, blank=True)
-    model = models.ManyToManyField(Model, blank=True)
+    brand = models.ManyToManyField(Brand)
+    model = models.ManyToManyField(Model)
     # brand = models.CharField(max_length=10)
     # model = models.CharField(max_length=10)
     reg_number = models.CharField('Registration Number', max_length=10)
     tech_insp = models.DateField("Technical Inspection")
     # driver = models.CharField('Driver', max_length=20)
     # description = models.TextField(blank=True)
+    vehicle_image = models.ImageField(null=True, blank=True, upload_to="images/")
 
     def full_name(self):
         return f"{self.brand} {self.model}".title()
