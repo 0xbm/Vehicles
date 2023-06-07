@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="{% url 'automobiles:home' %}">
-        <img src="/static/company_logo.png" width="30"
+        <img src="/static/icons/company_logo.png" width="30"
              height="30" class="d-inline-block align-top"
              alt="">AutoMobile
     </a>
@@ -9,7 +9,7 @@
 
             {% if user.is_authenticated %}
 
-            <li class="nav-item"><span class="navbar-text">Hello, {{ user.username }}.</span></li>
+            <li class="nav-item"><span class="navbar-text">Hello, {{ user.username.capitalize }}.</span></li>
             <li class="nav-item">
                 <a class="nav-link" href="#">Features</a>
             </li>
@@ -35,7 +35,7 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link" href=
-                        "{% url 'automobiles:list_vehicles' %}">all_vehicles</a>
+                        "{% url 'automobiles:list_vehicles' %}">list_vehicles</a>
             </li>
 
             {% else %}
