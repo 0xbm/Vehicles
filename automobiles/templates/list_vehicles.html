@@ -13,14 +13,23 @@
 {% for vehicle in vehicle_list %}
 <div class="card">
     <div class="card-header">
-        {{ vehicle }}
+        {{ vehicle.id }}. {{ vehicle }}
     </div>
     <div class="card-body">
-        <h5 class="card-title">vehicle: {{ vehicle }}</h5>
+        <h6 class="card-title">vehicle: {{ vehicle }}</h6>
         <p class="card-text">
         <ul>
-            <li><strong> reg number :</strong>{{ vehicle.reg_number }}</li>
-            <li><strong>tech_insp_date :</strong>{{ vehicle.tech_insp }}</li>
+            <li><strong>Registry number :</strong>{{ vehicle.reg_num }}</li>
+            <li><strong>Inspection Date :</strong>{{ vehicle.tech_insp }}</li>
+            <li><strong>VIN :</strong>{{ vehicle.vin_num }}</li>
+
+            <li><strong>Driver(s) :</strong><br/>
+                {% for user in vehicle.driver.all %}
+                <font COLOR="RED">&#42; {{ user }}<br/></font>
+                {% endfor %}
+            </li>
+
+            <li><strong>Description :</strong>{{ vehicle.description }}</li>
         </ul>
         </p>
         {% if vehicle.vehicle_image %}

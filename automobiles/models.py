@@ -2,45 +2,38 @@ from django.db import models
 
 
 # Create your models here.
-
-
 class Brand(models.Model):
-    brand = models.CharField('Brand', max_length=10)
-
-    # def brand_capitalize(self):
-    #     return f"{self.brand_capitalize}".title()
+    name = models.CharField('Brand', max_length=10)
 
     def __str__(self):
-        # self.name = self.name.title()
-        return self.brand
+        return self.name.title()
 
 
 class Model(models.Model):
-    model = models.CharField('Model', max_length=10)
-
-    # def model_capitalize(self):
-    #     return f"{self.model_capitalize}".title()
+    name = models.CharField('Model', max_length=10)
 
     def __str__(self):
-        # self.name = self.name.title()
-        return self.model
+        return self.name.title()
+
+
+class Driver(models.Model):
+    first_name = models.CharField('First Name', max_length=30)
+    last_name = models.CharField('Last Name', max_length=30)
+
+    def __str__(self):
+        return self.first_name.title() + ' ' + self.last_name.title()
 
 
 class Vehicle(models.Model):
-    name = models.CharField('Name', max_length=20)
-    brand = models.ManyToManyField(Brand)
-    model = models.ManyToManyField(Model)
-    # brand = models.CharField(max_length=10)
-    # model = models.CharField(max_length=10)
-    reg_number = models.CharField('Registration Number', max_length=10)
-    tech_insp = models.DateField("Technical Inspection")
-    # driver = models.CharField('Driver', max_length=20)
-    # description = models.TextField(blank=True)
-    vehicle_image = models.ImageField(null=True, blank=True, upload_to="images/")
-
-    def full_name(self):
-        return f"{self.brand} {self.model}".title()
+    name = models.CharField('Name', max_length=20)  # blank=False,
+    brand = models.ForeignKey(Brand, blank=True, null=True, on_delete=models.CASCADE)  # null=True
+    model = models.ForeignKey(Model, blank=True, null=True, on_delete=models.CASCADE)  # null=True
+    reg_num = models.CharField('Registration Number', max_length=10, blank=True)
+    tech_insp = models.DateField("Technical Inspection", blank=True)
+    vin_num = models.CharField('VIN Number', max_length=17, blank=True)
+    driver = models.ManyToManyField(Driver, blank=True)
+    description = models.TextField(blank=True)
+    vehicle_image = models.ImageField(blank=True, null=True, upload_to="images/")
 
     def __str__(self):
-        # self.name = self.name.title()
-        return self.full_name()
+        return self.name.title()
