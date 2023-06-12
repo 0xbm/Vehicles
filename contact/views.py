@@ -2,9 +2,13 @@ from django.template.loader import render_to_string
 from django.shortcuts import render, redirect
 from django.core.mail import send_mail
 from .forms import ContactForm
+from datetime import datetime
 
 
 def index(request):
+    now = datetime.now()
+    current_year = now.year
+    time = now.strftime('%H:%M:%S')
     if request.method == "POST":
         form = ContactForm(request.POST)
 
@@ -25,5 +29,5 @@ def index(request):
     else:
         form = ContactForm()
 
-    context = {"form": form}
+    context = {"form": form, "current_year": current_year, 'time': time}
     return render(request, "contact/index.html", context)
