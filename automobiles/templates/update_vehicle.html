@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block page_header %}
+
+{% endblock page_header %}
+
+{% block content %}
+
+    <h1>Edit {{ vehicle_update.id }}. {{ vehicle_update }} {{ vehicle_update.reg_num }} </h1>
+
+    <form action="" method ="POST">
+        {% csrf_token %}
+        {{ form.as_p }}<br/>
+        <input type ="submit" value="Update" class="btn btn-secondary">
+
+    </form>
+
+    </br></br>
+
+    {% include 'footer.html' %}
+
+{% endblock %}
