@@ -35,15 +35,21 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link" href=
-                        "{% url 'automobiles:list_vehicles' %}">list_vehicles</a>
+                        "{% url 'automobiles:all_vehicles' %}">all_vehicles</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href=
+                        "{% url 'automobiles:list_vehicles' %}">list_vehicle</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href=
                         "{% url 'automobiles:add_vehicle' %}">add_vehicles</a>
             </li>
-            <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            <form class="form-inline" method=POST action="{% url 'automobiles:search_vehicles' %}">
+                {% csrf_token %}
+                <input class="form-control" type="search" placeholder="Search vehicle" aria-label="Search"
+                       name='searched'>
+                <button class="btn btn-outline-secondary" type="submit">Search</button>
             </form>
 
             {% else %}

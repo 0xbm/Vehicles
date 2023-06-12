@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block page_header %}
+
+{% endblock page_header %}
+
+{% block content %}
+
+    <center><h1>VEHICLE {{vehicle_show.id}}</h1>
+        <br/>
+        <div class="card">
+            <div class="card-header">
+                {{vehicle_show.id}}. {{ vehicle_show }}
+            </div>
+            <div class="card-body">
+    <!--            <h6 class="card-title"></h6>-->
+                <p class="card-text">
+                <ul>
+                    Registration Number: {{ vehicle_show.reg_num }}<br/>
+                    Technical Inspection: {{ vehicle_show.tech_inspection }}<br/>
+                    VIN: {{ vehicle_show.vin_num }}<br/>
+                    Description: {{ vehicle_show.description }}<br/>
+                    <strong>Description :</strong>{{ vehicle_show.description }}
+                </ul>
+                </p>
+                {% if vehicle.vehicle_image %}
+                <img class='size' src="{{ vehicle.vehicle_image.url }}" alt=""/>
+                {% endif %}
+                <a href="#" class="btn btn-primary">EDIT</a>
+            </div>
+        </div>
+        <br/>
+
+    </center>
+    {% include 'footer.html' %}
+
+{% endblock %}
+
+

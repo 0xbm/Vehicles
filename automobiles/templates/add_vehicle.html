@@ -1,27 +1,29 @@
 {% extends 'base.html' %}
 
 {% block page_header %}
-<center><h1>Add VEHICLE to DATABASE</h1></center>
 {% endblock page_header %}
 
 {% block content %}
-{% if submitted %}
-    Your vehicle Was Submitted Succesfully !!!
-{% else %}
 
-<form action="." method="POST">
-    {% csrf_token %}
+<center><h1>Add VEHICLE to DATABASE</h1></center>
 
-    {{ form.as_p }}
+    {% if submitted %}
+        Your vehicle Was Submitted Succesfully !!!
+    {% else %}
 
-    <button type="submit" class="btn btn-outline-secondary mb-3 hvr">Send</button>
-</form>
-{% endif %}
+        <form action="" method="POST">
+            {% csrf_token %}
 
-<form action="{% url 'automobiles:home' %}" method="POST" enctype="multipart/form-data">
-    {% csrf_token %}
-    <button type="submit" class="btn btn-outline-secondary mb-3 hvr">Back</button>
-</form>
+            {{ form.as_p }}
+
+            <button type="submit" class="btn btn-outline-secondary mb-3 hvr">Send</button>
+        </form>
+    {% endif %}
+
+        <form action="{% url 'automobiles:home' %}" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-outline-secondary mb-3 hvr">Back</button>
+        </form>
 
 {% include 'footer.html' %}
 
