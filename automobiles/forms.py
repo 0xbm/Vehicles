@@ -1,13 +1,13 @@
 from django import forms
 from django.forms import ModelForm
-from .models import Vehicle
+from .models import Vehicle, Brand
 
 
 class VehicleForm(ModelForm):
     class Meta:
         model = Vehicle
-        fields = ['name', 'brand', 'model', 'reg_num', 'vin_num', 'tech_inspection', 'driver', 'vehicle_image',
-                  'description']
+        fields = ['name', 'brand', 'model', 'reg_num', 'vin_num', 'tech_inspection', 'driver',
+                  'description', 'vehicle_image', ]
         labels = {
             'name': '',
             'brand': 'Brand',
@@ -16,8 +16,8 @@ class VehicleForm(ModelForm):
             'vin_num': '',
             'tech_inspection': '',
             'driver': '',
-            'vehicle_image': '',
             'description': '',
+            'vehicle_image': '',
         }
         widgets = {
             'name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Vehicle Name'}),
@@ -28,6 +28,17 @@ class VehicleForm(ModelForm):
             'tech_inspection': forms.DateInput(
                 attrs={'class': 'form-control', 'placeholder': 'Technical Inspection Date (YYYY:MM:DD)'}),
             'driver': forms.SelectMultiple(attrs={'class': 'form-control', 'placeholder': 'Driver'}),
-            'vehicle_image': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Vehicle Image'}),
             'description': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Description'}),
+        }
+
+
+class BrandForm(ModelForm):
+    class Meta:
+        model = Brand
+        fields = ['name', ]
+        labels = {
+            'name': '',
+        }
+        widgets = {
+            'name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Vehicle Name'}),
         }

@@ -33,7 +33,7 @@ class Vehicle(models.Model):
     vin_num = models.CharField('VIN Number', max_length=17, blank=True)
     driver = models.ManyToManyField(Driver, blank=True)
     description = models.TextField(blank=True)
-    vehicle_image = models.ImageField(blank=True, upload_to="images/")
+    vehicle_image = models.ImageField(blank=True, null=True, upload_to="images/")
 
     def __str__(self):
         return self.name.title()

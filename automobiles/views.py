@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .forms import VehicleForm
+from .forms import VehicleForm, BrandForm
 from datetime import datetime
 from .models import Brand, Model, Vehicle, Driver
 from django.http import HttpResponseRedirect
@@ -32,7 +32,7 @@ def add_vehicle(request):
 
     now = datetime.now()
     current_year = now.year
-    time = now.strftime('%I:%M:%S %p')
+    time = now.strftime('%H:%M:%S')
     context = {"form": form, "current_year": current_year, 'time': time, 'submitted': submitted}
     return render(request, "add_vehicle.html", context)
 
@@ -91,3 +91,40 @@ def update_vehicle(request, vehicle_id):
 
     context = {"form": form, 'vehicle_update': vehicle_update, "current_year": current_year, 'time': time}
     return render(request, 'update_vehicle.html', context)
+
+
+def list_brand(request):
+    brand_list = Brand.objects.all()
+    return render(request, 'list_brand.html', {'brand_list': brand_list})
+
+
+def show_brand(request, brand_id):
+    brand_show = Brand.objects.get(pk=brand_id)
+    return render(request, 'show_brand.html', {'brand_show': brand_show})
+
+
+def update_brand(request, brand_id):
+    brand_update = Brand.objects.get(pk=brand_id)
+    form = BrandForm(request.POST or None, instance=brand_update)
+    if form.is_valid():
+        form.save()
+        redirect('update_brand.html')
+
+    context = {"form": form, 'brand_update': brand_update}
+    return render(request, 'update_brand.html', context)
+
+
+def add_brand(request):
+    submitted = False
+    if request.method == "POST":
+        form = BrandForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect('?submitted=True')
+    else:
+        form = BrandForm()
+        if 'submitted' in request.GET:
+            submitted = True
+
+    context = {"form": form, 'submitted': submitted}
+    return render(request, "add_brand.html", context)

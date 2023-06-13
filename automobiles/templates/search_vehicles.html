@@ -8,21 +8,21 @@
 
     <center>
         {% if searched %}
-        <h1>You Serched For {{ searched }}</h1><br/>
-        {% for vehicle in vehicles %}
-        <a href="{% url 'automobiles:show_vehicle' vehicle.id %}">{{ vehicle }} - {{ vehicle.reg_num }}</a>
-        <br/>
-        {% endfor %}
+            <h1>You Serched For {{ searched }}</h1><br/>
+            {% for vehicle in vehicles %}
+            <a href="{% url 'automobiles:show_vehicle' vehicle.id %}">{{ vehicle }} - {{ vehicle.reg_num }}</a>
+            <br/>
+            {% endfor %}
 
         {% else %}
-        <h1>You Forgot To Search For A Vehicle</h1>
-        {{ vehicle.vehicles_search }}
+            <h1>You Forgot To Search For A Vehicle</h1>
+            {{ vehicle.vehicles_search }}
 
         {% endif %}
 
 
     </center>
 
-    {% include 'footer.html' %}
+{% include 'footer.html' %}
 
 {% endblock %}
