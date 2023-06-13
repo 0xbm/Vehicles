@@ -53,6 +53,14 @@
                 <a class="nav-link" href=
                         "{% url 'automobiles:add_brand' %}">ADD_BRAND</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href=
+                        "{% url 'automobiles:list_model' %}">LIST_model</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href=
+                        "{% url 'automobiles:add_model' %}">ADD_model</a>
+            </li>
             <form class="form-inline" method=POST action="{% url 'automobiles:search_vehicles' %}">
                 {% csrf_token %}
                 <input class="form-control" type="search" placeholder="Search vehicle" aria-label="Search"

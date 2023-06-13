@@ -1,6 +1,6 @@
 from django import forms
 from django.forms import ModelForm
-from .models import Vehicle, Brand
+from .models import Vehicle, Brand, Model, Driver
 
 
 class VehicleForm(ModelForm):
@@ -35,10 +35,22 @@ class VehicleForm(ModelForm):
 class BrandForm(ModelForm):
     class Meta:
         model = Brand
+        fields = ['name' ]
+        labels = {
+            'name': '',
+        }
+        widgets = {
+            'name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Brand Name'}),
+        }
+
+
+class ModelForm(ModelForm):
+    class Meta:
+        model = Model
         fields = ['name', ]
         labels = {
             'name': '',
         }
         widgets = {
-            'name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Vehicle Name'}),
+            'name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Model Name'}),
         }

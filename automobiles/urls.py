@@ -14,6 +14,14 @@ urlpatterns = [
     path("show_brand/<brand_id>", views.show_brand, name="show_brand"),
     path("update_brand/<brand_id>", views.update_brand, name="update_brand"),
     path("add_brand/", views.add_brand, name="add_brand"),
-    # path("contact/", views.contact, name="contact"), # to jest contact z html form (ladny)
 
+    path("list_model/", views.list_model, name="list_model"),
+    path("show_model/<model_id>", views.show_model, name="show_model"),
+    path("update_model/<model_id>", views.update_model, name="update_model"),
+    path("add_model/", views.add_model, name="add_model"),
+    # path("contact/", views.contact, name="contact"), # to jest contact z html form (ladny)
+    path("list_driver/", views.list_driver, name="list_driver"),
+    path("show_driver/<driver_id>", views.show_driver, name="show_driver"),
+    path("update_driver/<driver_id>", views.update_driver, name="update_driver"),
+    path("add_driver/", views.add_driver, name="add_driver"),
 ]

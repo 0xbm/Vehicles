@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .forms import VehicleForm, BrandForm
+from .forms import VehicleForm, BrandForm,ModelForm
 from datetime import datetime
 from .models import Brand, Model, Vehicle, Driver
 from django.http import HttpResponseRedirect
@@ -128,3 +128,43 @@ def add_brand(request):
 
     context = {"form": form, 'submitted': submitted}
     return render(request, "add_brand.html", context)
+
+
+
+
+
+def list_model(request):
+    model_list = Model.objects.all()
+    return render(request, 'list_model.html', {'model_list': model_list})
+
+
+def show_model(request, model_id):
+    model_show = Model.objects.get(pk=model_id)
+    return render(request, 'show_model.html', {'model_show': model_show})
+
+
+def update_model(request, model_id):
+    model_update = Model.objects.get(pk=model_id)
+    form = ModelForm(request.POST or None, instance=model_update)
+    if form.is_valid():
+        form.save()
+        redirect('update_model.html')
+
+    context = {"form": form, 'model_update': model_update}
+    return render(request, 'update_model.html', context)
+
+
+def add_model(request):
+    submitted = False
+    if request.method == "POST":
+        form = ModelForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect('?submitted=True')
+    else:
+        form = ModelForm()
+        if 'submitted' in request.GET:
+            submitted = True
+
+    context = {"form": form, 'submitted': submitted}
+    return render(request, "add_model.html", context)
