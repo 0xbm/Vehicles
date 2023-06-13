@@ -35,7 +35,7 @@ class VehicleForm(ModelForm):
 class BrandForm(ModelForm):
     class Meta:
         model = Brand
-        fields = ['name' ]
+        fields = ['name']
         labels = {
             'name': '',
         }
@@ -53,4 +53,18 @@ class ModelForm(ModelForm):
         }
         widgets = {
             'name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Model Name'}),
+        }
+
+
+class DriverForm(ModelForm):
+    class Meta:
+        model = Driver
+        fields = ['first_name', 'last_name', ]
+        labels = {
+            'first_name': '',
+            'last_name': '',
+        }
+        widgets = {
+            'first_name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'First Name'}),
+            'last_name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Last Name'}),
         }

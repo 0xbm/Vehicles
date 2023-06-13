@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block page_header %}
+{% endblock page_header %}
+
+{% block content %}
+
+    <center><h1>LIST VEHICLE</h1></center>
+
+    <table class="table table-light table-striped table-hover table-bordered">
+        {% for driver in driver_list %}
+        <tr>
+            <td>
+                <a href="{% url 'automobiles:show_driver' driver.id %}">
+                    {{ driver.id }}. {{ driver }}</a>
+            </td>
+            <td class="edit_button">
+                <a href="{% url 'automobiles:update_driver' driver.id %}" class="btn btn-outline-secondary btn-sm">
+                   Edit
+                </a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% include 'footer.html' %}
+
+{% endblock %}

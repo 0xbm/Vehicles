@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .forms import VehicleForm, BrandForm,ModelForm
+from .forms import VehicleForm, BrandForm, ModelForm, DriverForm
 from datetime import datetime
 from .models import Brand, Model, Vehicle, Driver
 from django.http import HttpResponseRedirect
@@ -130,9 +130,6 @@ def add_brand(request):
     return render(request, "add_brand.html", context)
 
 
-
-
-
 def list_model(request):
     model_list = Model.objects.all()
     return render(request, 'list_model.html', {'model_list': model_list})
@@ -168,3 +165,40 @@ def add_model(request):
 
     context = {"form": form, 'submitted': submitted}
     return render(request, "add_model.html", context)
+
+
+def list_driver(request):
+    driver_list = Driver.objects.all()
+    return render(request, 'list_driver.html', {'driver_list': driver_list})
+
+
+def show_driver(request, driver_id):
+    driver_show = Driver.objects.get(pk=driver_id)
+    return render(request, 'show_driver.html', {'driver_show': driver_show})
+
+
+def update_driver(request, driver_id):
+    driver_update = Model.objects.get(pk=driver_id)
+    form = DriverForm(request.POST or None, instance=driver_update)
+    if form.is_valid():
+        form.save()
+        redirect('update_driver.html')
+
+    context = {"form": form, 'driver_update': driver_update}
+    return render(request, 'update_driver.html', context)
+
+
+def add_driver(request):
+    submitted = False
+    if request.method == "POST":
+        form = DriverForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect('?submitted=True')
+    else:
+        form = DriverForm()
+        if 'submitted' in request.GET:
+            submitted = True
+
+    context = {"form": form, 'submitted': submitted}
+    return render(request, "add_driver.html", context)
