@@ -13,10 +13,12 @@
             <td>
                 <a href="{% url 'automobiles:show_driver' driver.id %}">
                     {{ driver.id }}. {{ driver }}</a>
-            </td>
-            <td class="edit_button">
+
                 <a href="{% url 'automobiles:update_driver' driver.id %}" class="btn btn-outline-secondary btn-sm">
                    Edit
+                </a>
+                <a href="{% url 'automobiles:delete_driver' driver.id %}" class="btn btn-outline-danger btn-sm">
+                   Delete
                 </a>
             </td>
         </tr>

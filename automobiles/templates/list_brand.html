@@ -13,10 +13,12 @@
             <td>
                 <a href="{% url 'automobiles:show_brand' brand.id %}">
                     {{ brand.id }}. {{ brand }}</a>
-            </td>
-            <td class="edit_button">
+
                 <a href="{% url 'automobiles:update_brand' brand.id %}" class="btn btn-outline-secondary btn-sm">
                    Edit
+                </a>
+                <a href="{% url 'automobiles:delete_brand' brand.id %}" class="btn btn-outline-danger btn-sm">
+                   Delete
                 </a>
             </td>
         </tr>
