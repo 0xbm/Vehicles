@@ -2,12 +2,23 @@
 
 {% block page_header %}
 
-
+<div>
+    {% if messages %}
+    {% for message in messages %}
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        {{ message }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    {% endfor %}
+    {% endif %}
+</div>
 <div class="jumbotron text-center">
     <div class="container">
         <h1 class="display-4">Vehicle Database</h1>
 
-        <span><h2>Hello, {{ user.username.capitalize }}.</h2></span>
+        <span><H2>Hello, {{ user.username.capitalize }}.</H2></span>
         <div class="badge badge-pill badge-success">Online</div>
 
 
