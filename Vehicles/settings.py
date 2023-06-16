@@ -8,12 +8,12 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-SECRET_KEY = config("SECRET_KEY")
+SECRET_KEY = config("SECRET_KEY", default='')
 
 EMAIL_HOST = config("EMAIL_HOST")
-EMAIL_HOST_USER = config("EMAIL_HOST_USER")
-EMAIL_HOST_PASSWORD = config("EMAIL_HOST_PASSWORD")
-EMAIL_PORT = config("EMAIL_PORT")
+EMAIL_HOST_USER = config("EMAIL_HOST_USER", default='')
+EMAIL_HOST_PASSWORD = config("EMAIL_HOST_PASSWORD", default='')
+EMAIL_PORT = config("EMAIL_PORT", default=4, cast=int)
 
 # Application definition
 INSTALLED_APPS = [
