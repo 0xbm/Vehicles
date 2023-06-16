@@ -7,15 +7,15 @@ class VehicleForm(ModelForm):
     class Meta:
         model = Vehicle
         fields = ['name', 'brand', 'model', 'reg_num', 'vin_num', 'tech_inspection', 'driver',
-                  'description', 'vehicle_image', ]
+                  'description', 'vehicle_image']
         labels = {
             'name': '',
-            'brand': 'Brand',
+            'Brand': 'Brand',
             'model': 'Model',
             'reg_num': '',
             'vin_num': '',
             'tech_inspection': '',
-            'driver': '',
+            'driver': 'Driver/s',
             'description': '',
             'vehicle_image': '',
         }
@@ -47,7 +47,7 @@ class BrandForm(ModelForm):
 class ModelForm(ModelForm):
     class Meta:
         model = Model
-        fields = ['name', ]
+        fields = ['name']
         labels = {
             'name': '',
         }
@@ -59,7 +59,7 @@ class ModelForm(ModelForm):
 class DriverForm(ModelForm):
     class Meta:
         model = Driver
-        fields = ['first_name', 'last_name', ]
+        fields = ['first_name', 'last_name']
         labels = {
             'first_name': '',
             'last_name': '',
