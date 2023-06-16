@@ -3,21 +3,24 @@
 
 
 {% block page_header %}
-<h2>CONTACT</h2>
-{% endblock page_header %}
+<center>
+    <h2>CONTACT</h2><br/><br/><br/>
 
-{% block content %}
-<form action="{% url 'automobiles:home' %}" method="POST">
-    {% csrf_token %}
+    {% endblock page_header %}
 
-    {{ form.as_p }}
-    <button>Send</button>
-</form>
+    {% block content %}
+    <form action="{% url 'automobiles:home' %}" method="POST">
+        {% csrf_token %}
 
-<form action="{% url 'automobiles:home' %}" method="POST">
-    {% csrf_token %}
-    <button type="submit" class="btn btn-outline-secondary mb-3 hvr">Back</button>
-</form>
+        {{ form.as_p }}
+        <button>Send</button>
+    </form>
+
+    <form action="{% url 'automobiles:home' %}" method="POST">
+        {% csrf_token %}
+<!--        <button type="submit" class="btn btn-outline-secondary mb-3 hvr">Back</button>-->
+    </form>
+</center>
 
 {% include 'footer.html' %}
 

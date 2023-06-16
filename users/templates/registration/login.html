@@ -8,7 +8,6 @@
 {% endblock page_header %}
 
 {% block content %}
-<!--<p>Your username and password didn't match. Please try again.</p>-->
 <form method="post" action="{% url 'users:login' %}" class="form">
     {% csrf_token %}
     {% bootstrap_form form %}

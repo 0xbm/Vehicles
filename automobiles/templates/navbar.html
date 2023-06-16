@@ -1,74 +1,156 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="container-fluid navbar navbar-expand-lg navbar-dark bg-dark">
     <a class="navbar-brand" href="{% url 'automobiles:home' %}">
         <img src="/static/icons/company_logo.png" width="30"
              height="30" class="d-inline-block align-top"
-             alt="">AutoMobile
+             alt=""> AutoMobile
     </a>
-    <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        <ul class="navbar-nav">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
 
             {% if user.is_authenticated %}
 
-            <li class="nav-item"><span class="navbar-text">Hello, {{ user.username.capitalize }}.</span></li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Features</a>
-            </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
-                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Support
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                   aria-haspopup="true" aria-expanded="false">
+                    Vehicles
                 </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" href="#">Starter Support ></a>
-                    <a class="dropdown-item" href="#">Professional Support ></a>
-                    <a class="dropdown-item" href="#">Business Support ></a>
-                    <a class="dropdown-item" href="#">Enterprise Support ></a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href=
+                            "{% url 'automobiles:all_vehicles' %}">All Vehicles ></a>
+                    <a class="dropdown-item" href="{% url 'automobiles:list_vehicles' %}">List Vehicles ></a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">smth else ?? ></a>
                 </div>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href=
-                        "{% url 'users:logout' %}">Log out</a>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                   aria-haspopup="true" aria-expanded="false">
+                    Brand
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href=
+                            "{% url 'automobiles:list_brand' %}">List Brands ></a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">smth else ?? ></a>
+                </div>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href=
-                        "{% url 'users:delete_user' %}">Delete Account</a>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                   aria-haspopup="true" aria-expanded="false">
+                    Model
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href=
+                            "{% url 'automobiles:list_model' %}">List Models ></a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">smth else ?? ></a>
+                </div>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href=
-                        "{% url 'automobiles:all_vehicles' %}">all_vehicles</a>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                   aria-haspopup="true" aria-expanded="false">
+                    Drivers
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href=
+                            "{% url 'automobiles:list_driver' %}">LIST_driver</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">smth else ?? ></a>
+                </div>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href=
-                        "{% url 'automobiles:list_vehicles' %}">list_vehicle</a>
+            <!--            <li class="nav-item dropdown">-->
+            <!--                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"-->
+            <!--                   aria-haspopup="true" aria-expanded="false">-->
+            <!--                    Support-->
+            <!--                </a>-->
+            <!--                <div class="dropdown-menu" aria-labelledby="navbarDropdown">-->
+            <!--                    <a class="dropdown-item" href="#">Starter Support ></a>-->
+            <!--                    <a class="dropdown-item" href="#">Professional Support ></a>-->
+            <!--                    <a class="dropdown-item" href="#">Business Support ></a>-->
+            <!--                    <div class="dropdown-divider"></div>-->
+            <!--                    <a class="dropdown-item" href="#">Enterprise Support ></a>-->
+            <!--                </div>-->
+            <!--            </li>-->
+            <!--            <li class="nav-item">-->
+            <!--                <a class="nav-link" href="#">Features</a>-->
+            <!--            </li>-->
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                   aria-haspopup="true" aria-expanded="false">
+                    Download
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="{% url 'automobiles:vehicle_text' %}">Vehicles Text File ></a>
+                    <a class="dropdown-item" href="{% url 'automobiles:vehicle_csv' %}">Vehicles CSV File ></a>
+                    <a class="dropdown-item" href="{% url 'automobiles:vehicle_pdf' %}">Vehicles PDF File ></a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">smth else ?? ></a>
+                </div>
             </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                   aria-haspopup="true" aria-expanded="false">
+                    Account
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <p>Hello, {{ user.username.capitalize }}.</p>
+                    <a class="dropdown-item" href=
+                            "{% url 'users:logout' %}"><strong>Log out</strong></a>
+                    <a class="dropdown-item" href=
+                            "{% url 'users:delete_user' %}">Delete Account</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">smth else ?? ></a>
+                </div>
+            </li>
+            <!--            <li class="nav-item">-->
+            <!--                <a class="nav-link" href=-->
+            <!--                        "{% url 'automobiles:all_vehicles' %}">all_vehicles</a>-->
+            <!--            </li>-->
+            <!--            <li class="nav-item">-->
+            <!--                <a class="nav-link" href=-->
+            <!--                        "{% url 'automobiles:list_vehicles' %}">list_vehicle</a>-->
+            <!--            </li>-->
             <li class="nav-item">
                 <a class="nav-link" href=
                         "{% url 'automobiles:add_vehicle' %}">add_vehicles</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href=
-                        "{% url 'automobiles:list_brand' %}">LIST_BRAND</a>
-            </li>
+            <!--            <li class="nav-item">-->
+            <!--                <a class="nav-link" href=-->
+            <!--                        "{% url 'automobiles:list_brand' %}">LIST_BRAND</a>-->
+            <!--            </li>-->
             <li class="nav-item">
                 <a class="nav-link" href=
                         "{% url 'automobiles:add_brand' %}">ADD_BRAND</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href=
-                        "{% url 'automobiles:list_model' %}">LIST_model</a>
-            </li>
+            <!--            <li class="nav-item">-->
+            <!--                <a class="nav-link" href=-->
+            <!--                        "{% url 'automobiles:list_model' %}">LIST_model</a>-->
+            <!--            </li>-->
             <li class="nav-item">
                 <a class="nav-link" href=
                         "{% url 'automobiles:add_model' %}">ADD_model</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href=
-                        "{% url 'automobiles:list_driver' %}">LIST_driver</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href=
                         "{% url 'automobiles:add_driver' %}">ADD_driver</a>
             </li>
+            <!--            <li class="nav-item">-->
+            <!--                <a class="nav-link" href=-->
+            <!--                        "{% url 'automobiles:list_driver' %}">LIST_driver</a>-->
+            <!--            </li>-->
+
+            <!--            <li class="nav-item">-->
+            <!--                <a class="nav-link" href=-->
+            <!--                        "{% url 'automobiles:vehicle_text' %}">VEH TXT</a>-->
+            <!--            </li>-->
+            <!--            <li class="nav-item">-->
+            <!--                <a class="nav-link" href=-->
+            <!--                        "{% url 'automobiles:vehicle_csv' %}">VEH CSV</a>-->
+            <!--            </li>-->
+            <!--            <li class="nav-item">-->
+            <!--                <a class="nav-link" href=-->
+            <!--                        "{% url 'automobiles:vehicle_pdf' %}">VEH Pdf</a>-->
+            <!--            </li>-->
             <form class="form-inline" method=POST action="{% url 'automobiles:search_vehicles' %}">
                 {% csrf_token %}
                 <input class="form-control" type="search" placeholder="Search vehicle" aria-label="Search"
@@ -105,9 +187,24 @@
                     <div class="dropdown-divider"></div>
                 </div>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href=
+                        "{% url 'automobiles:add_vehicle' %}">add_vehicles</a>
+            </li>
 
+            <li class="nav-item">
+                <a class="nav-link" href=
+                        "{% url 'automobiles:add_brand' %}">ADD_BRAND</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href=
+                        "{% url 'automobiles:add_model' %}">ADD_model</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href=
+                        "{% url 'automobiles:add_driver' %}">ADD_driver</a>
+            </li>
             {% endif %}
-
         </ul>
     </div>
 </nav>

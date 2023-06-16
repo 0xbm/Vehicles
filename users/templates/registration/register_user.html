@@ -2,16 +2,30 @@
 {% block content %}
 {% load static %}
 
-<p></p>
-<form method="post" action="{% url 'users:register_user' %}">
+{% if form.errors %}
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+    <p>There Was An Error With Your Register, Try Again!</p>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+{{ message }}
+{% endif %}
 
-    {% csrf_token %}
-    {{ form.as_p }}
+<div class=shadow p4 mb-5 bg-body rounded>
+    <center><h1>REGISTER</h1></center>
+    <br/><br/>
+    <p></p>
+    <form action="{% url 'users:register_user' %}" method="POST">
 
-    <button name="submit" class="btn btn-primary">Create Account</button>
-    <input type="hidden" name="next" value="{% url 'automobiles:home' %}"/>
-</form>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <br/><br/>
 
+        <button name="submit" class="btn btn-secondary">Create Account</button>
+        <input type="hidden" name="next" value="{% url 'automobiles:home' %}"/>
+    </form><br/>
+</div>
 {% include 'footer.html' %}
 
-{% endblock content %}
+{% endblock %}
