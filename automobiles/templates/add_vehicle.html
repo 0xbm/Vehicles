@@ -4,9 +4,12 @@
 {% endblock page_header %}
 
 {% block content %}
+{% if user.is_authenticated %}
 
 <center><h1>Add VEHICLE to DATABASE</h1></center>
-
+<button type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Tooltip on top">
+  asdasdasdasBUTTON
+</button>
     {% if submitted %}
         Your vehicle Was Submitted Succesfully !!!
     {% else %}
