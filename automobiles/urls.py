@@ -24,4 +24,14 @@ urlpatterns = [
     path("show_driver/<driver_id>", views.show_driver, name="show_driver"),
     path("update_driver/<driver_id>", views.update_driver, name="update_driver"),
     path("add_driver/", views.add_driver, name="add_driver"),
+
+    path("delete_vehicle/<vehicle_id>", views.delete_vehicle, name="delete_vehicle"),
+    path("delete_brand/<brand_id>", views.delete_brand, name="delete_brand"),
+    path("delete_driver/<driver_id>", views.delete_driver, name="delete_driver"),
+    path("delete_model/<model_id>", views.delete_model, name="delete_model"),
+
+    path("vehicle_text", views.vehicle_text, name="vehicle_text"),
+    path("vehicle_csv", views.vehicle_csv, name="vehicle_csv"),
+    path("vehicle_pdf", views.vehicle_pdf, name="vehicle_pdf"),
+
 ]
