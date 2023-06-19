@@ -1,30 +1,32 @@
 {% extends 'base.html' %}
-
 {% block page_header %}
 {% endblock page_header %}
-
 {% block content %}
 
-<center><h1>ADD BRAND</h1></center>
+<br/>
+<center><h1>ADD BRAND</h1></center><br/>
+{% if submitted %}
+<div class="alert alert-success" role="alert">
+    <center>Your BRAND Was Submitted Succesfully !!!</center>
+</div><br/>
+<button type="submit" class="btn btn-outline-success mb-3 hvr text-warning">
+    <a href="{% url 'automobiles:add_brand' %}">Add Next Brand</a>
+</button>
+<button class="btn btn-outline-success mb-3 hvr text-warning">
+    <a href="{% url 'automobiles:home' %}">Home</a>
+</button>
+{% else %}
+<form action="" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}<br/>
+    <button type="submit" class="btn btn-outline-secondary mb-3 hvr">
+        Add
+    </button>
+    <button class="btn btn-outline-success mb-3 hvr text-warning">
+        <a href="{% url 'automobiles:home' %}">Home</a>
+    </button>
+</form>
 
-    {% if submitted %}
-        Your BRAND Was Submitted Succesfully !!!
-    {% else %}
-
-        <form action="" method="POST" enctype="multipart/form-data">
-            {% csrf_token %}
-
-            {{ form.as_p }}
-
-            <button type="submit" class="btn btn-outline-secondary mb-3 hvr">Send</button>
-        </form>
-    {% endif %}
-
-        <form action="{% url 'automobiles:home' %}" method="POST" >
-            {% csrf_token %}
-            <button type="submit" class="btn btn-outline-secondary mb-3 hvr">Back</button>
-        </form>
-
+{% endif %}
 {% include 'footer.html' %}
-
 {% endblock %}

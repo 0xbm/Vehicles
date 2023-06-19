@@ -1,36 +1,51 @@
 {% extends 'base.html' %}
-
 {% block page_header %}
 {% endblock page_header %}
-
 {% block content %}
 {% if user.is_authenticated %}
 
-<center><h1>Add VEHICLE to DATABASE</h1></center>
-<button type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Tooltip on top">
-  asdasdasdasBUTTON
+<br/><center><h1>ADD VEHICLE</h1></center><br/>
+{% if submitted %}
+<div class="alert alert-success" role="alert">
+    <center>Your Vehicle Was Submitted Successfully !!!
+    </center>
+</div><br/>
+<button type="submit" class="btn btn-outline-success mb-3 hvr text-warning">
+    <a href="{% url 'automobiles:add_vehicle' %}">Add Next Vehicle</a>
 </button>
-    {% if submitted %}
-        Your vehicle Was Submitted Succesfully !!!
-    {% else %}
-
-        <form action="" method="POST" enctype="multipart/form-data">
-            {% csrf_token %}
-
-            {{ form.as_p }}
-
-            <button type="submit" class="btn btn-outline-secondary mb-3 hvr">Send</button>
-        </form>
-    {% endif %}
-
-        <form action="{% url 'automobiles:home' %}" method="POST" >
-            {% csrf_token %}
-            <button type="submit" class="btn btn-outline-secondary mb-3 hvr">Back</button>
-        </form>
-
-{% include 'footer.html' %}
-
+<button class="btn btn-outline-success mb-3 hvr text-warning">
+    <a href="{% url 'automobiles:home' %}">Home</a>
+</button>
 {% else %}
-<center><h2>Sorry! You Must Be Logged In To View This Page</h2></center>
+<form action="" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-outline-secondary mb-3 hvr">Add
+    </button>
+    <button class="btn btn-outline-success mb-3 hvr text-warning">
+        <a href="{% url 'automobiles:home' %}">Home</a>
+    </button>
+    <a href="{% url 'automobiles:home' %}"
+       class="btn btn-outline-secondary mb-3 hvr text-warning">
+        Edit
+    </a>
+</form>
+{% endif %}
+{% include 'footer.html' %}
+{% else %}<br/>
+<div class="alert alert-warning alert-dismissible fade show"
+     role="alert">
+    <center><p>Sorry! You Must Be Sign In To
+        View This Page!</p>
+        <button type="button" class="close" data-dismiss="alert"
+                aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        <br/>
+        <a class="btn btn-primary" href="{% url 'users:login' %}"
+           role="button">Sign In
+            &raquo;&raquo;&raquo;</a></center>
+</div>
+
 {% endif %}
 {% endblock %}
