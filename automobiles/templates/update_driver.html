@@ -1,21 +1,13 @@
 {% extends 'base.html' %}
-
 {% block page_header %}
 {% endblock page_header %}
-
 {% block content %}
-
-    <h1>Edit {{ driver_update.id }}. {{ driver_update }} {{ driver_update.name }} </h1>
-
+    <h1>Edit {{ driver_update }} {{ driver_update.name }}</h1><br/>
     <form action="" method ="POST">
         {% csrf_token %}
         {{ form.as_p }}<br/>
         <input type ="submit" value="Update" class="btn btn-secondary">
-
     </form>
-
     </br></br>
-
     {% include 'footer.html' %}
-
 {% endblock %}

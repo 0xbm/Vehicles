@@ -1,21 +1,18 @@
 {% extends 'base.html' %}
-
 {% block page_header %}
 {% endblock page_header %}
-
 {% block content %}
 
-    <h1>Edit {{ vehicle_update.id }}. {{ vehicle_update }} {{ vehicle_update.reg_num }} </h1>
+<br/><h1>Edit Vehicle: {{ vehicle_update }}</h1><br/>
+<form action="" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}<br/>
+    <input type="submit" value="Update" class="btn btn-secondary">
+    <a type="submit" value="Update" class="btn btn-secondary"
+       href="{% url 'automobiles:home' %}"
+       role="button">Home &raquo;&raquo;&raquo;</a>
+</form>
+</br></br>
 
-    <form action="" method ="POST">
-        {% csrf_token %}
-        {{ form.as_p }}<br/>
-        <input type ="submit" value="Update" class="btn btn-secondary">
-
-    </form>
-
-    </br></br>
-
-    {% include 'footer.html' %}
-
+{% include 'footer.html' %}
 {% endblock %}

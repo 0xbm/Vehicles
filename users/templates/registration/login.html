@@ -1,26 +1,20 @@
 {% extends 'base.html' %}
 {% load bootstrap4 %}
 {% load static %}
-
-
-{% block page_header %}
-<center><h1>Sign In</h1></center>
+{% block page_header %}<br/>
+<center><h1>SIGN IN</h1></center>
 <br/>
 {% endblock page_header %}
-
 {% block content %}
 <form method="post" action="{% url 'users:login' %}" class="form">
     {% csrf_token %}
     {% bootstrap_form form %}
-
     {% buttons %}
     <button name="submit" class="btn btn-primary">Sign in</button>
     {% endbuttons %}
     <input type="hidden" name="next" value="{% url 'automobiles:home' %}"/>
-</form>
-<p>Don’t have an account? <a href="{% url 'users:register_user' %}">Sign up</a></p>
-
-
+</form><br/>
+<p>Don’t have an account? <a href="{% url 'users:register_user' %}">Sign up</a>
+</p>
 {% include 'footer.html' %}
-
 {% endblock  %}

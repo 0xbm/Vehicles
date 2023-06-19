@@ -1,29 +1,25 @@
 {% extends 'base.html' %}
-
 {% block page_header %}
 {% endblock page_header %}
-
-{% block content %}
-
-<center><h1>VEHICLE {{brand_show.id}}</h1>
-        <br/>
-        <div class="card">
-            <div class="card-header">
-                {{brand_show.id}}. {{ brand_show }}
-            </div>
-            <div class="card-body">
-    <!--            <h6 class="card-title"></h6>-->
-                <p class="card-text">
-                    <ul>
-                        Name: {{ brand_show.name }}<br/>
-                DUPA
-                    </ul>
-                </p>
-            </div>
+{% block content %}<br/>
+<center>
+    <!--    <h1>VEHICLE {{brand_show.id}}</h1><br/>-->
+    <br/>
+    <div class="card">
+        <div class="card-header">
+<!--            {{brand_show.id}}. {{ brand_show }}-->
         </div>
-        <br/>
+        <div class="card-body">
+            <!--            <h6 class="card-title"></h6>-->
+            <p class="card-text">
+            <ul>
+                Brand Name: {{ brand_show.name }}<br/>
+            </ul>
+            </p>
+        </div>
+    </div>
+    <br/>
 
-    </center>
-    {% include 'footer.html' %}
-
+</center>
+{% include 'footer.html' %}
 {% endblock %}

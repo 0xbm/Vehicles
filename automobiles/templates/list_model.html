@@ -1,28 +1,56 @@
 {% extends 'base.html' %}
-
 {% block page_header %}
 {% endblock page_header %}
-
 {% block content %}
+<br/>
+<center><h1>MODEL LIST</h1></center><br/>
+<table class="table table-light table-striped table-hover table-bordered">
+    {% for model in model_list %}
+    <tr>
+        <td>
+            <a href="{% url 'automobiles:show_model' model.id %}">
+                {{ model.id }}. {{ model }}</a>
+        </td>
+        <td class="edit_button">
+            <a href="{% url 'automobiles:update_model' model.id %}"
+               class="btn btn-outline-secondary btn-sm">
+                Edit
+            </a>
+            <a href="{% url 'automobiles:delete_model' model.id %}"
+               class="btn btn-outline-danger btn-sm">
+                Delete
+            </a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+<br/><br/>
+<center>
+    <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+            {% if vehicles.has_previous %}
+            <li class="page-item"><a class="page-link" href="?page=1">&laquo
+                First</a></li>
+            <li class="page-item"><a class="page-link"
+                                     href="?page={{ vehicles.previous_page_number }}">Previous</a>
+            </li>
+            {% endif %}
+            {% for i in nums %}
+            <li class="page-item"><a class="page-link"
+                                     href="?page={{ forloop.counter }}">{{ forloop.counter }}</a></li>
+            {% endfor %}
+            {% if vehicles.has_next %}
+            <li class="page-item"><a class="page-link"
+                                     href="?page={{ vehicles.next_page_number }}">Next</a>
+            </li>
+            <li class="page-item"><a class="page-link"
+                                     href="?page={{ vehicles.paginator.num_pages }}">Last
+                &raquo</a>
+            </li>
+            {% endif %}
+        </ul>
+    </nav>
+</center>
 
-    <center><h1>LIST model</h1></center>
-
-    <table class="table table-light table-striped table-hover table-bordered">
-        {% for model in model_list %}
-        <tr>
-            <td>
-                <a href="{% url 'automobiles:show_model' model.id %}">
-                    {{ model.id }}. {{ model }}</a>
-                <a href="{% url 'automobiles:update_model' model.id %}" class="btn btn-outline-secondary btn-sm">
-                   Edit
-                </a>
-                <a href="{% url 'automobiles:delete_model' model.id %}" class="btn btn-outline-danger btn-sm">
-                   Delete
-                </a>
-            </td>
-        </tr>
-        {% endfor %}
-    </table>
-    {% include 'footer.html' %}
-
+{% include 'footer.html' %}
 {% endblock %}

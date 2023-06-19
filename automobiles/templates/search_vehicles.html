@@ -1,27 +1,30 @@
 {% extends 'base.html' %}
-
 {% block page_header %}
 {% endblock page_header %}
-
 {% block content %}
 
-    <center>
-        {% if searched %}
-            <h1>You Serched For {{ searched }}</h1><br/>
-            {% for vehicle in vehicles %}
-            <a href="{% url 'automobiles:show_vehicle' vehicle.id %}">{{ vehicle }} - {{ vehicle.reg_num }}</a>
-            <br/>
-            {% endfor %}
-
-        {% else %}
-            <h1>You Forgot To Search For A Vehicle</h1>
-            {{ vehicle.vehicles_search }}
-
-        {% endif %}
-
-
-    </center>
+<center>
+    {% if searched %}<br/>
+    <h1>You Serched For {{ searched }}</h1><br/>
+    {% for vehicle in vehicles %}
+    <a href="{% url 'automobiles:show_vehicle' vehicle.id %}">{{ vehicle }} -
+        {{ vehicle.reg_num }}</a>
+    <br/>
+    {% endfor %}
+    {% else %}<br/>
+    <div class="alert alert-warning alert-dismissible fade show"
+         role="alert">
+        <center>
+            <p>You Forgot To Search For A Vehicle</p>
+            <button type="button" class="close" data-dismiss="alert"
+                    aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </center>
+    </div>
+    {{ vehicle.vehicles_search }}
+    {% endif %}
+</center>
 
 {% include 'footer.html' %}
-
 {% endblock %}
