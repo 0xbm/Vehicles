@@ -127,11 +127,11 @@ def list_brand(request):
     time = now.strftime('%H:%M:%S')
     p = Paginator(Brand.objects.all(), 2)
     page = request.GET.get('page')
-    vehicles = p.get_page(page)
-    nums = '-' * vehicles.paginator.num_pages
+    brands = p.get_page(page)
+    nums = '-' * brands.paginator.num_pages
 
     context = {'brand_list': brand_list, "current_year": current_year,
-               'time': time, 'vehicles': vehicles,
+               'time': time, 'brands': brands,
                'nums': nums}
     return render(request, 'list_brand.html', context)
 
@@ -188,10 +188,10 @@ def list_model(request):
     model_list = Model.objects.all()
     p = Paginator(Model.objects.all(), 2)
     page = request.GET.get('page')
-    vehicles = p.get_page(page)
-    nums = '-' * vehicles.paginator.num_pages
+    models = p.get_page(page)
+    nums = '-' * models.paginator.num_pages
     context = {'model_list': model_list, "current_year": current_year,
-               'time': time, 'vehicles': vehicles,
+               'time': time, 'models': models,
                'nums': nums}
     return render(request, 'list_model.html', context)
 
@@ -246,8 +246,13 @@ def list_driver(request):
     current_year = now.year
     time = now.strftime('%H:%M:%S')
     driver_list = Driver.objects.all()
+    p = Paginator(Driver.objects.all(), 2)
+    page = request.GET.get('page')
+    drivers = p.get_page(page)
+    nums = '-' * drivers.paginator.num_pages
     context = {'driver_list': driver_list, "current_year": current_year,
-               'time': time}
+               'time': time,'drivers': drivers,
+               'nums': nums}
     return render(request, 'list_driver.html', context)
 
 
