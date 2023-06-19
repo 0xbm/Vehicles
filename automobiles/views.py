@@ -18,15 +18,11 @@ from reportlab.lib.pagesizes import letter
 from django.core.paginator import Paginator
 
 
-# Create your views here.
-# def index(request):
-#     return HttpResponse("Hello, you are at the automobile index.")
-
-
 def home(request):
     now = datetime.now()
     current_year = now.year
     time = now.strftime('%H:%M:%S')
+
     context = {"current_year": current_year, 'time': time}
     return render(request, "home.html", context)
 
@@ -46,18 +42,19 @@ def add_vehicle(request):
     now = datetime.now()
     current_year = now.year
     time = now.strftime('%H:%M:%S')
-    context = {"form": form, "current_year": current_year, 'time': time, 'submitted': submitted}
+    context = {"form": form, "current_year": current_year, 'time': time,
+               'submitted': submitted}
     return render(request, "add_vehicle.html", context)
 
 
 def all_vehicles(request):
     vehicles_all = Vehicle.objects.all().order_by('name')
-
     now = datetime.now()
     current_year = now.year
     time = now.strftime('%H:%M:%S')
 
-    context = {'vehicles_all': vehicles_all, "current_year": current_year, 'time': time}
+    context = {'vehicles_all': vehicles_all, "current_year": current_year,
+               'time': time}
     return render(request, 'all_vehicles.html', context)
 
 
@@ -71,9 +68,10 @@ def list_vehicles(request):
     p = Paginator(Vehicle.objects.all(), 2)
     page = request.GET.get('page')
     vehicles = p.get_page(page)
-    nums = '-' * vehicles.paginator.num_pages  # this must be a string 'something' '-'
+    nums = '-' * vehicles.paginator.num_pages
 
-    context = {'vehicles_list': vehicles_list, "current_year": current_year, 'time': time, 'vehicles': vehicles,
+    context = {'vehicles_list': vehicles_list, "current_year": current_year,
+               'time': time, 'vehicles': vehicles,
                'nums': nums}
     return render(request, 'list_vehicles.html', context)
 
@@ -83,7 +81,9 @@ def show_vehicle(request, vehicle_id):
     now = datetime.now()
     current_year = now.year
     time = now.strftime('%H:%M:%S')
-    context = {'vehicle_show': vehicle_show, "current_year": current_year, 'time': time}
+
+    context = {'vehicle_show': vehicle_show, "current_year": current_year,
+               'time': time}
     return render(request, 'show_vehicle.html', context)
 
 
@@ -95,10 +95,12 @@ def search_vehicles(request):
         searched = request.POST['searched']
         vehicles = Vehicle.objects.filter(name__contains=searched)
         return render(request, 'search_vehicles.html',
-                      {'searched': searched, 'vehicles': vehicles, "current_year": current_year, 'time': time})
+                      {'searched': searched, 'vehicles': vehicles,
+                       "current_year": current_year, 'time': time})
     else:
         vehicles_search = Vehicle.objects.all()
-        context = {'vehicles_search': vehicles_search, "current_year": current_year, 'time': time}
+        context = {'vehicles_search': vehicles_search,
+                   "current_year": current_year, 'time': time}
         return render(request, 'search_vehicles.html', context)
 
 
@@ -107,12 +109,14 @@ def update_vehicle(request, vehicle_id):
     current_year = now.year
     time = now.strftime('%H:%M:%S')
     vehicle_update = Vehicle.objects.get(pk=vehicle_id)
-    form = VehicleForm(request.POST or None, instance=vehicle_update)
+    form = VehicleForm(request.POST or None, request.FILES or None,
+                       instance=vehicle_update)
     if form.is_valid():
         form.save()
         redirect('update_vehicle.html')
 
-    context = {"form": form, 'vehicle_update': vehicle_update, "current_year": current_year, 'time': time}
+    context = {"form": form, 'vehicle_update': vehicle_update,
+               "current_year": current_year, 'time': time}
     return render(request, 'update_vehicle.html', context)
 
 
@@ -121,7 +125,14 @@ def list_brand(request):
     now = datetime.now()
     current_year = now.year
     time = now.strftime('%H:%M:%S')
-    context = {'brand_list': brand_list, "current_year": current_year, 'time': time}
+    p = Paginator(Brand.objects.all(), 2)
+    page = request.GET.get('page')
+    vehicles = p.get_page(page)
+    nums = '-' * vehicles.paginator.num_pages
+
+    context = {'brand_list': brand_list, "current_year": current_year,
+               'time': time, 'vehicles': vehicles,
+               'nums': nums}
     return render(request, 'list_brand.html', context)
 
 
@@ -130,7 +141,8 @@ def show_brand(request, brand_id):
     now = datetime.now()
     current_year = now.year
     time = now.strftime('%H:%M:%S')
-    context = {'brand_show': brand_show, "current_year": current_year, 'time': time}
+    context = {'brand_show': brand_show, "current_year": current_year,
+               'time': time}
     return render(request, 'show_brand.html', context)
 
 
@@ -144,7 +156,8 @@ def update_brand(request, brand_id):
         form.save()
         redirect('update_brand.html')
 
-    context = {"form": form, 'brand_update': brand_update, "current_year": current_year, 'time': time}
+    context = {"form": form, 'brand_update': brand_update,
+               "current_year": current_year, 'time': time}
     return render(request, 'update_brand.html', context)
 
 
@@ -163,7 +176,8 @@ def add_brand(request):
         if 'submitted' in request.GET:
             submitted = True
 
-    context = {"form": form, 'submitted': submitted, "current_year": current_year, 'time': time}
+    context = {"form": form, 'submitted': submitted,
+               "current_year": current_year, 'time': time}
     return render(request, "add_brand.html", context)
 
 
@@ -172,7 +186,13 @@ def list_model(request):
     current_year = now.year
     time = now.strftime('%H:%M:%S')
     model_list = Model.objects.all()
-    context = {'model_list': model_list, "current_year": current_year, 'time': time}
+    p = Paginator(Model.objects.all(), 2)
+    page = request.GET.get('page')
+    vehicles = p.get_page(page)
+    nums = '-' * vehicles.paginator.num_pages
+    context = {'model_list': model_list, "current_year": current_year,
+               'time': time, 'vehicles': vehicles,
+               'nums': nums}
     return render(request, 'list_model.html', context)
 
 
@@ -181,7 +201,8 @@ def show_model(request, model_id):
     current_year = now.year
     time = now.strftime('%H:%M:%S')
     model_show = Model.objects.get(pk=model_id)
-    context = {'model_show': model_show, "current_year": current_year, 'time': time}
+    context = {'model_show': model_show, "current_year": current_year,
+               'time': time}
     return render(request, 'show_model.html', context)
 
 
@@ -195,7 +216,8 @@ def update_model(request, model_id):
         form.save()
         redirect('update_model.html')
 
-    context = {"form": form, 'model_update': model_update, "current_year": current_year, 'time': time}
+    context = {"form": form, 'model_update': model_update,
+               "current_year": current_year, 'time': time}
     return render(request, 'update_model.html', context)
 
 
@@ -214,7 +236,8 @@ def add_model(request):
         if 'submitted' in request.GET:
             submitted = True
 
-    context = {"form": form, 'submitted': submitted, "current_year": current_year, 'time': time}
+    context = {"form": form, 'submitted': submitted,
+               "current_year": current_year, 'time': time}
     return render(request, "add_model.html", context)
 
 
@@ -223,7 +246,8 @@ def list_driver(request):
     current_year = now.year
     time = now.strftime('%H:%M:%S')
     driver_list = Driver.objects.all()
-    context = {'driver_list': driver_list, "current_year": current_year, 'time': time}
+    context = {'driver_list': driver_list, "current_year": current_year,
+               'time': time}
     return render(request, 'list_driver.html', context)
 
 
@@ -232,7 +256,8 @@ def show_driver(request, driver_id):
     current_year = now.year
     time = now.strftime('%H:%M:%S')
     driver_show = Driver.objects.get(pk=driver_id)
-    context = {'driver_show': driver_show, "current_year": current_year, 'time': time}
+    context = {'driver_show': driver_show, "current_year": current_year,
+               'time': time}
     return render(request, 'show_driver.html', context)
 
 
@@ -240,13 +265,14 @@ def update_driver(request, driver_id):
     now = datetime.now()
     current_year = now.year
     time = now.strftime('%H:%M:%S')
-    driver_update = Model.objects.get(pk=driver_id)
+    driver_update = Driver.objects.get(pk=driver_id)
     form = DriverForm(request.POST or None, instance=driver_update)
     if form.is_valid():
         form.save()
         redirect('update_driver.html')
 
-    context = {"form": form, 'driver_update': driver_update, "current_year": current_year, 'time': time}
+    context = {"form": form, 'driver_update': driver_update,
+               "current_year": current_year, 'time': time}
     return render(request, 'update_driver.html', context)
 
 
@@ -265,7 +291,8 @@ def add_driver(request):
         if 'submitted' in request.GET:
             submitted = True
 
-    context = {"form": form, 'submitted': submitted, "current_year": current_year, 'time': time}
+    context = {"form": form, 'submitted': submitted,
+               "current_year": current_year, 'time': time}
     return render(request, "add_driver.html", context)
 
 
@@ -276,7 +303,7 @@ def delete_vehicle(request, vehicle_id):
     vehicle_delete = Vehicle.objects.get(pk=vehicle_id)
     vehicle_delete.delete()
     context = {"current_year": current_year, 'time': time}
-    return render(request, "list_vehicles.html", context)
+    return render(request, "home.html", context)
 
 
 def delete_brand(request, brand_id):
@@ -286,7 +313,7 @@ def delete_brand(request, brand_id):
     brand_delete = Brand.objects.get(pk=brand_id)
     brand_delete.delete()
     context = {"current_year": current_year, 'time': time}
-    return render(request, "list_brand.html", context)
+    return render(request, "home.html", context)
 
 
 def delete_model(request, model_id):
@@ -296,7 +323,7 @@ def delete_model(request, model_id):
     model_delete = Model.objects.get(pk=model_id)
     model_delete.delete()
     context = {"current_year": current_year, 'time': time}
-    return render(request, "list_model.html", context)
+    return render(request, "home.html", context)
 
 
 def delete_driver(request, driver_id):
@@ -306,7 +333,7 @@ def delete_driver(request, driver_id):
     driver_delete = Driver.objects.get(pk=driver_id)
     driver_delete.delete()
     context = {"current_year": current_year, 'time': time}
-    return redirect("list_vehicles.html", context)
+    return render(request, "home.html", context)
 
 
 def vehicle_text(request):
@@ -327,11 +354,13 @@ def vehicle_csv(request):
     response['Content-Disposition'] = 'attachment; filename=vehicles.csv'
     writer = csv.writer(response)
     vehicles = Vehicle.objects.all()
-    writer.writerow(['Vehicle Name', 'Brand', 'Model', 'Registry Number', 'Technical Inspection', 'Vin', 'Driver'])
+    writer.writerow(['Vehicle Name', 'Brand', 'Model', 'Registry Number',
+                     'Technical Inspection', 'Vin', 'Driver'])
 
     for vehicle in vehicles:
         writer.writerow(
-            [vehicle.name, vehicle.brand, vehicle.model, vehicle.reg_num, vehicle.tech_inspection, vehicle.vin_num,
+            [vehicle.name, vehicle.brand, vehicle.model, vehicle.reg_num,
+             vehicle.tech_inspection, vehicle.vin_num,
              vehicle.driver])
     return response
 

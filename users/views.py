@@ -17,7 +17,7 @@ def register_user(request):
         if form.is_valid():
             new_user = form.save()
             login(request, new_user)
-            messages.success(request, 'Register Succesfuly!')
+            messages.success(request, 'Register Successfully!')
             return redirect("automobiles:home")
     context = {"form": form, "current_year": current_year, 'time': time}
     return render(request, "registration/register_user.html", context)
@@ -42,28 +42,3 @@ def delete_user(request):
     time = now.strftime('%H:%M:%S')
     context = {"current_year": current_year, 'time': time}
     return render(request, "delete/remove_user.html", context)
-
-# def delete_user(request, username):
-#     context = {}
-#
-#     if not request.user.is_authenticated:
-#         return redirect("registration/register.html")
-#
-#     if request.method == 'DELETE':
-#         try:
-#             user = request.user
-#             user.delete('Niraj')
-#             context['msg'] = 'Bye Bye'
-#         except Exception as e:
-#             context['msg'] = 'Something went wrong!'
-#
-#     else:
-#         context['msg'] = 'Request method should be "DELETE"!'
-#
-#     return render(request, 'delete/remove_user.html', context=context)
-
-
-# from django.contrib.auth.models import User
-# user = User.objects.create_user(username='Niraj',
-#                                  email='deyneeraj666.com',
-#                                  password='glass onion')
