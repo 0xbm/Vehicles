@@ -1,74 +1,136 @@
-# APLIKACJA WEBOWA DO WSPOMAGANIA FLOTY POJAZDÓW
-## _AutoMobile_
+ 
 
+![Static Badge](https://img.shields.io/badge/build-passing-brightgreen)
 
-[![Build Progrss](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
+ 
 
-## 1. PRZEZNACZENIE
+ 
 
-Projektowana aplikacja webowa przeznaczona jest dla właścicieli flot , logistyków oraz dla  osób, które zajmują się zarządzaniem pojazdami w firmach. Aplikacja będzie zapisywać dane dotyczące każdego pojazdu wpisywanego w programie. Głównym przeznaczeniem aplikacji jest zsumowanie wszystkich informacji na temat pojazdów w jednym miejscu co poprawi i zautomatyzuje pracę z osobom zajmującym się tym procesem. Projekt zakłada możliwość rozbudowy oprogramowania o kolejne moduły tak, aby finalnie był to pełen pakiet wszelkich programów obliczeniowych wykorzystywanych w pracy osób zajmujących się gospodarką magazynową oraz paliwową floty. 
+# AutoMobile
 
+ 
 
+### APLIKACJA WEBOWA DO WSPOMAGANIA FLOTY POJAZDÓW
 
-## 2. OPIS DZIAŁANIA APLIKACJI 
-Aplikacja webowa działa w oparciu o usługę chmurową, do której następuje dostęp przez klienta – przeglądarkę internetową. Użytkownik ma do dyspozycji kafelki (grid) nawigacyjne, z których wybiera odpowiednie moduły aplikacji. 
+ 
 
-W widoku głównym, dla osób niezarejestrowanych, czeka nas tylko podgląd na wszystkie dodane pojazdy do floty. Po zarejestrowaniu się jako użytkownik platformy, dostajemy możliwość dodawania, edycji oraz usuwania pojazdów (C.R.U.D) oraz niezbędnych informacji użytych podczas tworzenia elementu takich jak:
+Projektowana aplikacja webowa przeznaczona jest dla właścicieli flot , logistyków oraz dla osób, które zajmują się zarządzaniem pojazdami w firmach. Aplikacja będzie zapisywać dane dotyczące każdego pojazdu wpisywanego w programie. Głównym przeznaczeniem aplikacji jest zsumowanie wszystkich informacji na temat pojazdów w jednym miejscu co poprawi i zautomatyzuje pracę z osobom zajmującym się tym procesem. Projekt zakłada możliwość rozbudowy oprogramowania o kolejne moduły tak, aby finalnie był to pełen pakiet wszelkich programów obliczeniowych wykorzystywanych w pracy osób zajmujących się gospodarką magazynową oraz paliwową floty.
 
+ 
 
-- Brand
-- Model 
-- Model 
-- Model 
-- Model 
-- Model 
+ 
 
-Po wybraniu modułu „Add Vehicle” zostaje przekierowany na stronę , która umożliwi dodawania pojazdów do bazy danych. 
-Moduł „Add Vehicle” przedstawia poniższa grafika:
+## Tech Stack
 
+ 
 
-Po wybraniu modułu „List Vehicle” wsyświetla się lista wszystkich pojazdów w stosie z możliwościa edycji lub usunięcia. Sytuacja wygląda tak samo w odniesieniu do modułów „List Brand”, „List Model” czy  „List Driver”.  
-W aplikacji wykorzystałem możliwość wyświetlania stron (pagination) na liście pojazdów. 
-W stopcje jest możliwość wysłania wiadomości mail a także ikony z linkiem prawdzacym na: Github, LinkedIn czy Twitter. 
+**Client Side:** Browser
 
-## 3. Tech
+ 
 
-Dillinger uses a number of open source projects to work properly:
-- [git-repo-url] 
-- [Python 3.11] 
-- [Markdown]
-- [Bootstrap] 
-- [HTML]
-- [CSS]
-- [Java Script]
+**Front End:** HTML, CSS
 
-And of course Dillinger itself is open source with a [public repository][dill]
- on GitHub.
+ 
 
-## 4. INSTALACJA
+**Back End:** Python Django
 
-Instalowanie zależności wpisując w konsoli:
-```sh
-pip install -r requirements.txt
+ 
+
+**Database** SQLite
+
+ 
+
+ 
+
+## Run Locally
+
+ 
+
+Clone the project
+
+ 
+
+```bash
+
+  git clone https://github.com/0xbm/Vehicles
+
 ```
 
-## 5. ROZPOCZECIE PRACY
+ 
 
-```sh
+Go to the project directory
+
+ 
+
+```bash
+
+  cd Vehicles
+
+```
+
+ 
+
+Install dependencies
+
+ 
+
+```bash
+
+  pip install -r requirements.txt
+
+```
+
+ 
+
+Start the server
+
+ 
+
+```bash
+
 127.0.0.1:8000
+
 ```
 
-### Licencja
+ 
 
-MIT
-**Free Software, Hell Yeah!**
+ 
 
-[//]: # (These are reference links used in the body of this note and get stripped out when the markdown processor does its job. There is no need to format nicely because it shouldn't be seen. Thanks SO - http://stackoverflow.com/questions/4823468/store-comments-in-markdown-syntax)
+## Demo
 
-   [git-repo-url]: <https://github.com/0xmb/vehicles.git>
-   [markdown]: <https://www.markdownguide.org/>
-   [python 3.11]: <https://www.python.org/>
-   [Bootstrap]: <http://twitter.github.com/bootstrap/>
-   [html]: <https://html.com/>
-   [css]: <https://css.com/>
-   [java script]: <https://javascript.com/>
+ 
+
+Insert gif or link to demo
+
+ 
+
+ 
+
+## Screenshots
+
+ 
+
+![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+
+ 
+
+ 
+
+## Authors
+
+ 
+
+- [@0xbm](https://www.github.com/0xbm)
+
+ 
+
+ 
+
+## 🔗 Links
+
+[![portfolio](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://katherineoelsner.com/)
+
+[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/)
+
+[![twitter](https://img.shields.io/badge/twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/)
+
