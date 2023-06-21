@@ -19,10 +19,11 @@
 <form action="" method="POST" enctype="multipart/form-data">
     {% csrf_token %}
     {{ form.as_p }}<br/>
-    <button type="submit" class="btn btn-outline-secondary mb-3 hvr">
+    <button type="submit" class="btn btn-outline-info mb-3 hvr text-dark">
+    <button type="submit" class="btn btn-outline-info mb-3 hvr text-dark">
         Add
     </button>
-    <button class="btn btn-outline-success mb-3 hvr text-warning">
+    <button type="submit" class="btn btn-outline-info mb-3 hvr text-info" style="margin-left: 25px;">
         <a href="{% url 'automobiles:home' %}">Home</a>
     </button>
 </form>

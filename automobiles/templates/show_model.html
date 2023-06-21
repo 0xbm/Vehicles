@@ -3,25 +3,23 @@
 {% endblock page_header %}
 {% block content %}
 
-<center><h1>model {{model_show.id}}</h1>
-        <br/>
-        <div class="card">
-            <div class="card-header">
-                {{model_show.id}}. {{ model_show }}
-            </div>
-            <div class="card-body">
-    <!--            <h6 class="card-title"></h6>-->
-                <p class="card-text">
-                    <ul>
-                        Name: {{ model_show.name }}<br/>
-                DUPA a jak
-                    </ul>
-                </p>
-            </div>
+<center>
+    <br/>
+    <div class="card">
+        <div class="card-header">
+            {{model_show.id}}. {{ model_show }}
         </div>
-        <br/>
+        <div class="card-body">
+            <p class="card-text">
+            <ul>
+                Name: {{ model_show.name }}<br/>
+            </ul>
+            </p>
+        </div>
+    </div>
+    <br/>
 
-    </center>
+</center>
 
-    {% include 'footer.html' %}
+{% include 'footer.html' %}
 {% endblock %}

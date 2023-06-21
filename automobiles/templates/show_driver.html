@@ -1,29 +1,27 @@
 {% extends 'base.html' %}
-
 {% block page_header %}
 {% endblock page_header %}
-
 {% block content %}
 
-<center><h1>VEHICLE {{driver_show.id}}</h1>
-        <br/>
-        <div class="card">
-            <div class="card-header">
-                {{driver_show.id}}. {{ driver_show }}
-            </div>
-            <div class="card-body">
-    <!--            <h6 class="card-title"></h6>-->
-                <p class="card-text">
-                    <ul>
-                        Name: {{ driver_show.name }}<br/>
-                DUPA
-                    </ul>
-                </p>
-            </div>
+<center>
+    <br/>
+    <div class="card">
+        <div class="card-header">
+            {{driver_show.id}}. {{ driver_show }}
         </div>
-        <br/>
+        <div class="card-body">
+            <h6 class="card-title"></h6>
+            <p class="card-text">
+            <ul>
+                First Name: {{ driver_show.first_name }}<br/>
+                Last Name: {{ driver_show.last_name }}<br/>
+            </ul>
+            </p>
+        </div>
+    </div>
+    <br/>
 
-    </center>
-    {% include 'footer.html' %}
+</center>
+{% include 'footer.html' %}
 
 {% endblock %}

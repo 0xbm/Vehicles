@@ -1,16 +1,15 @@
 {% extends 'base.html' %}
 {% block page_header %}
 {% endblock page_header %}
-{% block content %}<br/>
-<center>
-    <!--    <h1>VEHICLE {{brand_show.id}}</h1><br/>-->
+{% block content %}
+
+<br/><center>
     <br/>
     <div class="card">
         <div class="card-header">
-<!--            {{brand_show.id}}. {{ brand_show }}-->
+            {{brand_show.id}}. {{ brand_show }}
         </div>
         <div class="card-body">
-            <!--            <h6 class="card-title"></h6>-->
             <p class="card-text">
             <ul>
                 Brand Name: {{ brand_show.name }}<br/>
@@ -21,5 +20,6 @@
     <br/>
 
 </center>
+
 {% include 'footer.html' %}
 {% endblock %}
