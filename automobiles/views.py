@@ -65,7 +65,7 @@ def list_vehicles(request):
     time = now.strftime('%H:%M:%S')
 
     # Set up Pagination
-    p = Paginator(Vehicle.objects.all(), 2)
+    p = Paginator(Vehicle.objects.all(), 4)
     page = request.GET.get('page')
     vehicles = p.get_page(page)
     nums = '-' * vehicles.paginator.num_pages
@@ -125,7 +125,7 @@ def list_brand(request):
     now = datetime.now()
     current_year = now.year
     time = now.strftime('%H:%M:%S')
-    p = Paginator(Brand.objects.all(), 2)
+    p = Paginator(Brand.objects.all(), 4)
     page = request.GET.get('page')
     brands = p.get_page(page)
     nums = '-' * brands.paginator.num_pages
@@ -186,7 +186,7 @@ def list_model(request):
     current_year = now.year
     time = now.strftime('%H:%M:%S')
     model_list = Model.objects.all()
-    p = Paginator(Model.objects.all(), 2)
+    p = Paginator(Model.objects.all(), 4)
     page = request.GET.get('page')
     models = p.get_page(page)
     nums = '-' * models.paginator.num_pages
