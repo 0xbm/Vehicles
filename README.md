@@ -109,14 +109,14 @@ Insert gif or link to demo
 ## Screenshots
 
  
-<h1>Main View without login</h1>
+### Main View without login
 ![Main View](https://raw.githubusercontent.com/0xbm/Vehicles/main/docs/img/main.png)
-<h1>Main View with login</h1>
- ![Main View](https://raw.githubusercontent.com/0xbm/Vehicles/main/docs/img/1.png)
-<h1>All Vehicles</h1>
- ![Main View](https://raw.githubusercontent.com/0xbm/Vehicles/main/docs/img/2.png)
-<h1>Add Vehicle</h1>
- ![Main View](https://raw.githubusercontent.com/0xbm/Vehicles/main/docs/img/3.png)
+### Main View with login
+ ![Main View /w login](https://raw.githubusercontent.com/0xbm/Vehicles/main/docs/img/1.png)
+### All Vehicles
+ ![All Vehciles](https://raw.githubusercontent.com/0xbm/Vehicles/main/docs/img/2.png)
+### Add Vehicle
+ ![Add Vehcile](https://raw.githubusercontent.com/0xbm/Vehicles/main/docs/img/3.png)
 
 
  
