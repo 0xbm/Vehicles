@@ -14,7 +14,7 @@
 
  
 
-Projektowana aplikacja webowa przeznaczona jest dla właścicieli flot , logistyków oraz dla osób, które zajmują się zarządzaniem pojazdami w firmach. Aplikacja będzie zapisywać dane dotyczące każdego pojazdu wpisywanego w programie. Głównym przeznaczeniem aplikacji jest zsumowanie wszystkich informacji na temat pojazdów w jednym miejscu co poprawi i zautomatyzuje pracę z osobom zajmującym się tym procesem. Projekt zakłada możliwość rozbudowy oprogramowania o kolejne moduły tak, aby finalnie był to pełen pakiet wszelkich programów obliczeniowych wykorzystywanych w pracy osób zajmujących się gospodarką magazynową oraz paliwową floty.
+Projektowana aplikacja webowa przeznaczona jest dla właścicieli flot , logistyków oraz dla osób, które zajmują się zarządzaniem pojazdami w firmach. Aplikacja będzie zapisywać dane dotyczące każdego pojazdu wpisywanego w programie. Głównym przeznaczeniem aplikacji jest zsumowanie wszystkich informacji na temat pojazdów w jednym miejscu co poprawi i zautomatyzuje pracę osobom zajmującym się tym procesem. Projekt zakłada możliwość rozbudowy oprogramowania o kolejne moduły tak, aby finalnie był to pełen pakiet wszelkich programów obliczeniowych wykorzystywanych w pracy osób zajmujących się gospodarką magazynową oraz paliwową floty.
 
  
 
@@ -100,8 +100,7 @@ Start the server
 
  
 
-Insert gif or link to demo
-
+[Link to avi video](https://files.fm/u/qgvyzfkp3)
  
 
  
@@ -109,10 +108,15 @@ Insert gif or link to demo
 ## Screenshots
 
  
+### Main View without login
+![Main View](https://raw.githubusercontent.com/0xbm/Vehicles/main/docs/img/main.png)
+### Main View with login
+ ![Main View /w login](https://raw.githubusercontent.com/0xbm/Vehicles/main/docs/img/1.png)
+### All Vehicles
+ ![All Vehciles](https://raw.githubusercontent.com/0xbm/Vehicles/main/docs/img/2.png)
+### Add Vehicle
+ ![Add Vehcile](https://raw.githubusercontent.com/0xbm/Vehicles/main/docs/img/3.png)
 
-![Main View](https://raw.github.com/0xbm/Vehicles/blob/main/scr/1.png)
-
- 
 
  
 
@@ -128,9 +132,4 @@ Insert gif or link to demo
 
 ## 🔗 Links
 
-[![portfolio](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://katherineoelsner.com/)
-
-[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/)
-
-[![twitter](https://img.shields.io/badge/twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/)
 
