@@ -214,10 +214,10 @@
             </li>
             <form class="form-inline" method=POST
                   action="{% url 'automobiles:search_vehicles' %}"
-                  style="margin-left: 50px;">
+                  style="margin-left: 30px;">
                 {% csrf_token %}
                 <input class="form-control"
-                       style="width: 150px; background: #ecf1f9;" type="search"
+                       style="width: 140px; background: #ecf1f9;" type="search"
                        placeholder="Search vehicle" aria-label="Search"
                        name='searched'>
                 <button class="btn btn-outline-danger text-dark"
