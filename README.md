@@ -110,7 +110,7 @@ Insert gif or link to demo
 
  
 
-![App Screenshot]([(https://files.fm/u/bf8xecnqn)])
+![App Screenshot]([https://files.fm/u/bf8xecnqn])
 
  
 
