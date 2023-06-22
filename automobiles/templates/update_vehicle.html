@@ -7,10 +7,12 @@
 <form action="" method="POST" enctype="multipart/form-data">
     {% csrf_token %}
     {{ form.as_p }}<br/>
-    <input type="submit" value="Update" class="btn btn-secondary">
-    <a type="submit" value="Update" class="btn btn-secondary"
-       href="{% url 'automobiles:home' %}"
-       role="button">Home &raquo;&raquo;&raquo;</a>
+    <button type="submit" class="btn btn-outline-info mb-3 hvr text-dark">Update
+    </button>
+    <button type="submit" class="btn btn-outline-info mb-3 hvr text-info"
+            style="margin-left: 25px;">
+        <a href="{% url 'automobiles:home' %}">Home &raquo;&raquo;&raquo;</a>
+    </button>
 </form>
 </br></br>
 

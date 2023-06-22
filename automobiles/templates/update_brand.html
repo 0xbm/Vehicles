@@ -2,12 +2,14 @@
 {% block page_header %}
 {% endblock page_header %}
 {% block content %}<br/>
-    <h1>Edit Brand: {{ brand_update }}</h1><br/><br/>
-    <form action="" method="POST">
-        {% csrf_token %}
-        {{ form.as_p }}<br/>
-        <input type="submit" value="Update" class="btn btn-secondary">
-    </form>
-    </br></br>
-    {% include 'footer.html' %}
+<h1>Edit Brand: {{ brand_update }}</h1><br/><br/>
+<form action="" method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}<br/>
+    <button type="submit" class="btn btn-outline-info mb-3 hvr text-dark">
+        Update
+    </button>
+</form>
+</br></br>
+{% include 'footer.html' %}
 {% endblock %}
