@@ -14,7 +14,7 @@
 
  
 
-Projektowana aplikacja webowa przeznaczona jest dla właścicieli flot , logistyków oraz dla osób, które zajmują się zarządzaniem pojazdami w firmach. Aplikacja będzie zapisywać dane dotyczące każdego pojazdu wpisywanego w programie. Głównym przeznaczeniem aplikacji jest zsumowanie wszystkich informacji na temat pojazdów w jednym miejscu co poprawi i zautomatyzuje pracę z osobom zajmującym się tym procesem. Projekt zakłada możliwość rozbudowy oprogramowania o kolejne moduły tak, aby finalnie był to pełen pakiet wszelkich programów obliczeniowych wykorzystywanych w pracy osób zajmujących się gospodarką magazynową oraz paliwową floty.
+Projektowana aplikacja webowa przeznaczona jest dla właścicieli flot , logistyków oraz dla osób, które zajmują się zarządzaniem pojazdami w firmach. Aplikacja będzie zapisywać dane dotyczące każdego pojazdu wpisywanego w programie. Głównym przeznaczeniem aplikacji jest zsumowanie wszystkich informacji na temat pojazdów w jednym miejscu co poprawi i zautomatyzuje pracę osobom zajmującym się tym procesem. Projekt zakłada możliwość rozbudowy oprogramowania o kolejne moduły tak, aby finalnie był to pełen pakiet wszelkich programów obliczeniowych wykorzystywanych w pracy osób zajmujących się gospodarką magazynową oraz paliwową floty.
 
  
 
