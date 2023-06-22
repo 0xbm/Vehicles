@@ -110,7 +110,7 @@ Insert gif or link to demo
 
  
 
-![Main View](https://raw.github.com/0xbm/Vehicles/blob/main/scr/1.png)
+![Main View](https://raw.githubusercontent.com/0xbm/Vehicles/main/docs/img/main.png)
 
  
 
